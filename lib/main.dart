@@ -14,7 +14,7 @@ void main() async {
   Directory dir = await getApplicationDocumentsDirectory();
   Hive.registerAdapter(EngineModelAdapter());
 
-  await Hive.openBox(knameBox , path: dir.path);
+  await Hive.openBox(knameBox, path: dir.path);
 
   runApp(const MyApp());
 }
@@ -25,9 +25,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      routes: myRoutes,
-      home: HomeView(),
+    return const Directionality(
+      child: MaterialApp(
+        routes: myRoutes,
+        home: HomeView(),
+      ),
     );
   }
 }

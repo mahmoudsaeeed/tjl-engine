@@ -1,3 +1,4 @@
+import 'package:bloc_learn/presentaion/widget/EngineShapeWidgets/engine_shape.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -5,6 +6,11 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(),
+      body: Container(
+        child: Padding(padding: EdgeInsets.all(10),child: EngineShape(),),
+      ),
+    );
   }
 }
