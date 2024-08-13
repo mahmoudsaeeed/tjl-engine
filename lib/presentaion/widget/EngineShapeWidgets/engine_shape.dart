@@ -12,7 +12,7 @@ class EngineShape extends StatelessWidget {
       child: Container(
         height: 100, //TODO will remove
         padding: EdgeInsets.all(10),
-        
+        margin: EdgeInsets.symmetric(vertical: 5),
         decoration: engineShape,
         child: const Column(
           mainAxisSize: MainAxisSize.min,

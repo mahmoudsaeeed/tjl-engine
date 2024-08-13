@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bloc_learn/models/engine_model.dart';
 import 'package:bloc_learn/models/engine_model_adapter.dart';
 import 'package:bloc_learn/presentaion/views/home_view.dart';
 import 'package:bloc_learn/utils/constants.dart';
@@ -14,7 +15,7 @@ void main() async {
   Directory dir = await getApplicationDocumentsDirectory();
   Hive.registerAdapter(EngineModelAdapter());
 
-  await Hive.openBox(knameBox, path: dir.path);
+  await Hive.openBox<EngineModel>(knameBox, path: dir.path);
 
   runApp(const MyApp());
 }
