@@ -1,7 +1,11 @@
+// import 'package:bloc_learn/cubits/DisplayEngine/display_engine_cubit.dart';
+import 'package:bloc_learn/cubits/DisplayEngine/display_engine_cubit.dart';
 import 'package:bloc_learn/presentaion/views/Screens/all_screen.dart';
 import 'package:bloc_learn/presentaion/views/Screens/non_ref_screen.dart';
 import 'package:bloc_learn/presentaion/views/Screens/ref_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TriggerScreensView extends StatefulWidget {
   const TriggerScreensView({super.key});
@@ -17,9 +21,27 @@ class _TriggerScreensViewState extends State<TriggerScreensView>
   void initState() {
     _tabController = TabController(length: _tabs.length, vsync: this);
 
-    _tabController.addListener(() {
-      //TODO here we will propaplly use it
-    },);
+    _tabController.addListener(
+      () {
+        if (_tabController.indexIsChanging) {
+          debugPrint("current index = ${_tabController.index}");
+          debugPrint("current offest = ${_tabController.offset}");
+          debugPrint("animation = ${_tabController.animationDuration}");
+          debugPrint("${_tabController.indexIsChanging}");
+
+          BlocProvider.of<DisplayEngineCubit>(context)
+              .fetchAllData(_tabController.index);
+        }
+        // else {
+        //   debugPrint("current index = ${_tabController.index}");
+        //   debugPrint("current offest = ${_tabController.offset}");
+        //   debugPrint("animation = ${_tabController.animationDuration}");
+        //   debugPrint("${_tabController.indexIsChanging}");
+        // }
+
+        //TODO here we will propaplly use it
+      },
+    );
     super.initState();
   }
 
@@ -27,6 +49,7 @@ class _TriggerScreensViewState extends State<TriggerScreensView>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blue,
         bottom: TabBar(
           tabs: _tabs,
           controller: _tabController,
@@ -34,7 +57,11 @@ class _TriggerScreensViewState extends State<TriggerScreensView>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: _screens,
+        children: [
+          AllScreen(pageIndex: _tabController.index),
+          RefScreen(),
+          NonRefScreen(),
+        ],
       ),
     );
   }
@@ -52,8 +79,8 @@ const List<Widget> _tabs = [
   ),
 ];
 
-List<Widget> _screens = const [
-  AllScreen(),
-  RefScreen(),
-  NonRefScreen(),
-];
+// List<Widget> _screens = const [
+//   AllScreen(),
+//   RefScreen(),
+//   NonRefScreen(),
+// ];
