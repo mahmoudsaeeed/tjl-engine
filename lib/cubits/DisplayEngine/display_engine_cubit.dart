@@ -26,6 +26,11 @@ class DisplayEngineCubit extends Cubit<List<EngineModel>> {
               box.values.where((engine) => engine.state == "ref").toList();
           break;
         }
+      case 3:
+        {
+          currList =
+              box.values.where((engine) => engine.state == "depart").toList();
+        }
     }
     emit(currList!);
   }

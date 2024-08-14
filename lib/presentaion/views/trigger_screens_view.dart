@@ -1,10 +1,8 @@
 // import 'package:bloc_learn/cubits/DisplayEngine/display_engine_cubit.dart';
-import 'package:bloc_learn/cubits/DisplayEngine/display_engine_cubit.dart';
 import 'package:bloc_learn/presentaion/views/Screens/all_screen.dart';
 import 'package:bloc_learn/presentaion/views/Screens/non_ref_screen.dart';
 import 'package:bloc_learn/presentaion/views/Screens/ref_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TriggerScreensView extends StatefulWidget {
@@ -24,8 +22,8 @@ class _TriggerScreensViewState extends State<TriggerScreensView>
 
     //*/* this provider is execute one time when just open the app
     //*/* it reloads data at first time
-    BlocProvider.of<DisplayEngineCubit>(context)
-        .fetchAllData(_tabController.index);
+    // BlocProvider.of<DisplayEngineCubit>(context)
+    //     .fetchAllData(_tabController.index);
 
     // _tabController.addListener(
     //   () {
