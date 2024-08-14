@@ -11,9 +11,10 @@ class EngineListView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: ListView.builder(
-        itemCount: currList.length + 5, //TODO 5 will removed
+        itemCount: currList.length,
         itemBuilder: (context, index) {
-          return const EngineShape();
+          EngineModel currEngine = currList[index];
+          return EngineShape(currEngine: currEngine,);
         },
       ),
     );

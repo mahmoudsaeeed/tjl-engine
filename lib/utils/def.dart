@@ -4,4 +4,4 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 final Box<EngineModel> box = Hive.box<EngineModel>(knameBox);
 
-final DateTime myDateTime = DateTime.now();
+final String myDateTime = DateTime.now().toString().split("")[0];

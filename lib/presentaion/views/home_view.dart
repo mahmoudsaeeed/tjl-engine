@@ -10,9 +10,11 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
+      // lazy: false,
       create: (context) => DisplayEngineCubit(),
       child: Scaffold(
-        floatingActionButton: FloatingActionBtn(),
+        resizeToAvoidBottomInset: false,
+        floatingActionButton: const FloatingActionBtn(indexPage: 0,),  //TODO  we want to provide currPage provider
         floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
         body: Container(
           color: Colors.black45,

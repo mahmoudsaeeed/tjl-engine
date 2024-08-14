@@ -10,7 +10,8 @@ class CustomTextFormField extends StatelessWidget {
       padding: const EdgeInsets.all(5),
       child: TextFormField(
         controller: controller,
-        decoration: textFormFieldStyle
+        decoration: textFormFieldStyle("رقم المحرك"),
+        
       ),
     );
   }

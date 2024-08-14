@@ -5,13 +5,14 @@ BoxDecoration engineStyle = BoxDecoration(
   color: Colors.blueGrey,
 );
 
-InputDecoration textFormFieldStyle = InputDecoration(
+InputDecoration textFormFieldStyle (label)=> InputDecoration(
   border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(10), gapPadding: 4),
   filled: true,
   fillColor: Colors.amber,
-  contentPadding: const EdgeInsets.all(0),
+  contentPadding: const EdgeInsets.all(10),
   isDense: true,
+  hintText: label
 );
 
 RelativeRect rect = RelativeRect.fromSize(recta, Size.infinite);

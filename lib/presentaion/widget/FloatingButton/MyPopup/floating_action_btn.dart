@@ -1,14 +1,18 @@
+import 'package:bloc_learn/cubits/AddEngine/add_engine_cubit.dart';
 import 'package:bloc_learn/presentaion/widget/AddEngine_modal_sheet/add_engine_modal_shape.dart';
+import 'package:bloc_learn/utils/def.dart';
 import 'package:flutter/material.dart';
-class FloatingActionBtn extends StatelessWidget {
-  const FloatingActionBtn({super.key});
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+class FloatingActionBtn extends StatelessWidget {
+  const FloatingActionBtn({super.key, required this.indexPage});
+  final int indexPage;
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
       icon: const Icon(Icons.add),
       onSelected: (int value) {
-        onSelected(value, context);
+        onSelected(value, context, indexPage);
       },
       itemBuilder: (context) {
         return list;
@@ -32,13 +36,17 @@ List<PopupMenuEntry<int>> list = const [
   ),
 ];
 
-onSelected(int value, BuildContext context) {
+onSelected(int value, BuildContext context, int indexPage) {
   switch (value) {
     case 0:
       {
         showModalBottomSheet(
+          isScrollControlled: true,
           context: context,
-          builder: (context) => const AddEngineModalShape(),
+          builder: (context) => BlocProvider(
+            create: (context) => AddEngineCubit(),
+            child: AddEngineModalShape(),
+          ),
         );
         break;
       }
@@ -63,6 +71,13 @@ onSelected(int value, BuildContext context) {
                 ],
               );
             });
+
+        break;
+      }
+
+    case 2:
+      {
+        box.clear();
       }
   }
 }

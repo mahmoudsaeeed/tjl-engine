@@ -16,22 +16,24 @@ class TriggerScreensView extends StatefulWidget {
 
 class _TriggerScreensViewState extends State<TriggerScreensView>
     with SingleTickerProviderStateMixin {
+
   late TabController _tabController;
   @override
   void initState() {
     _tabController = TabController(length: _tabs.length, vsync: this);
 
-    _tabController.addListener(
-      () {
-        if (_tabController.indexIsChanging) {
-          debugPrint("current index = ${_tabController.index}");
-          debugPrint("current offest = ${_tabController.offset}");
-          debugPrint("animation = ${_tabController.animationDuration}");
-          debugPrint("${_tabController.indexIsChanging}");
+    //*/* this provider is execute one time when just open the app
+    //*/* it reloads data at first time
+    BlocProvider.of<DisplayEngineCubit>(context)
+        .fetchAllData(_tabController.index);
 
-          BlocProvider.of<DisplayEngineCubit>(context)
-              .fetchAllData(_tabController.index);
-        }
+    // _tabController.addListener(
+    //   () {
+    //     if (_tabController.indexIsChanging) {
+    //       debugPrint("current index = ${_tabController.index}");
+    //       BlocProvider.of<DisplayEngineCubit>(context)
+    //           .fetchAllData(_tabController.index);
+    //     }
         // else {
         //   debugPrint("current index = ${_tabController.index}");
         //   debugPrint("current offest = ${_tabController.offset}");
@@ -40,8 +42,8 @@ class _TriggerScreensViewState extends State<TriggerScreensView>
         // }
 
         //TODO here we will propaplly use it
-      },
-    );
+      // },
+    // );
     super.initState();
   }
 
@@ -57,10 +59,10 @@ class _TriggerScreensViewState extends State<TriggerScreensView>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [
-          AllScreen(pageIndex: _tabController.index),
-          RefScreen(),
+        children: const[
+          AllScreen(),
           NonRefScreen(),
+          RefScreen(),
         ],
       ),
     );

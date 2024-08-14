@@ -10,11 +10,12 @@ class AddEngineCubit extends Cubit<AddEngineState> {
 
   addEngine() {
     EngineModel engine = EngineModel(
-                  int.parse(idController.value.text),
-                  stateController.value.text,
-                  myDateTime.toString());
-                  
+      int.parse(idController.value.text),
+      stateController.value.text,
+      myDateTime,
+    );
+
     box.add(engine);
-    emit(AddEngineSuccess());
+    emit(AddEngineSuccess(currList: box.values.toList()));
   }
 }
