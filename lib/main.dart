@@ -4,6 +4,7 @@ import 'package:bloc_learn/cubits/simple_observer.dart';
 import 'package:bloc_learn/models/engine_model.dart';
 import 'package:bloc_learn/models/engine_model_adapter.dart';
 import 'package:bloc_learn/presentaion/views/home_view.dart';
+import 'package:bloc_learn/presentaion/views/main_view.dart';
 import 'package:bloc_learn/utils/constants.dart';
 import 'package:bloc_learn/utils/my_routes.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
     return const Directionality(
       child: MaterialApp(
         routes: myRoutes,
-        home: HomeView(),
+        home: MainView(),
       ),
     );
   }
