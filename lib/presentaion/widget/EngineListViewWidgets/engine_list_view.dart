@@ -14,7 +14,7 @@ class EngineListView extends StatelessWidget {
         itemCount: currList.length,
         itemBuilder: (context, index) {
           EngineModel currEngine = currList[index];
-          return EngineShape(currEngine: currEngine,);
+          return EngineShape(currEngine: currEngine, index : index);
         },
       ),
     );

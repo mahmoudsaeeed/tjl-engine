@@ -1,5 +1,6 @@
 import 'package:bloc_learn/cubits/AddEngine/add_engine_cubit.dart';
-import 'package:bloc_learn/presentaion/widget/AddEngine_modal_sheet/add_engine_modal_shape.dart';
+import 'package:bloc_learn/presentaion/widget/modal_sheet/add_engine_modal_shape.dart';
+import 'package:bloc_learn/utils/constants.dart';
 import 'package:bloc_learn/utils/def.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,7 +46,7 @@ onSelected(int value, BuildContext context, int indexPage) {
           context: context,
           builder: (context) => BlocProvider(
             create: (context) => AddEngineCubit(),
-            child: AddEngineModalShape(),
+            child: const EngineModalShape(operate: addOperation,),  //* add
           ),
         );
         break;

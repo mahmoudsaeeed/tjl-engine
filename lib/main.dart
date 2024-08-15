@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bloc_learn/cubits/DisplayEngine/display_engine_cubit.dart';
+import 'package:bloc_learn/cubits/EditEngine/edit_engine_cubit.dart';
 import 'package:bloc_learn/cubits/simple_observer.dart';
 import 'package:bloc_learn/models/engine_model.dart';
 import 'package:bloc_learn/models/engine_model_adapter.dart';
@@ -30,13 +31,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => DisplayEngineCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => DisplayEngineCubit(),
+        ),
+        BlocProvider(
+          create: (context) => EditEngineCubit(),
+        ),
+      ],
       child: MaterialApp(
         routes: myRoutes,
         home: const MainView(),
-        ),
-      
+      ),
     );
   }
 }

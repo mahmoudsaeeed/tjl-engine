@@ -1,4 +1,5 @@
 import 'package:bloc_learn/models/engine_model.dart';
+import 'package:bloc_learn/utils/constants.dart';
 import 'package:bloc_learn/utils/controllers.dart';
 import 'package:bloc_learn/utils/def.dart';
 import 'package:bloc_learn/utils/get_index_in_box.dart';
@@ -18,6 +19,15 @@ class EditEngineCubit extends Cubit<EditEngineState> {
       logDateEditController.value.text,
     );
 
+    box.putAt(boxIndex, newEngine);
+  }
+
+  moveToDepart(EngineModel currEngine) {
+    int boxIndex = getIndexInBox(currEngine);
+
+    EngineModel newEngine =
+        EngineModel(currEngine.id, department, currEngine.logDate);
+    
     box.putAt(boxIndex, newEngine);
   }
 }
