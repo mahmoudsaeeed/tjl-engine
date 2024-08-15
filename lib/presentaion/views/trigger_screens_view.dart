@@ -2,6 +2,7 @@
 import 'package:bloc_learn/presentaion/views/Screens/all_screen.dart';
 import 'package:bloc_learn/presentaion/views/Screens/non_ref_screen.dart';
 import 'package:bloc_learn/presentaion/views/Screens/ref_screen.dart';
+import 'package:bloc_learn/utils/constants.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -67,15 +68,15 @@ class _TriggerScreensViewState extends State<TriggerScreensView>
   }
 }
 
-const List<Widget> _tabs = [
+List<Widget> _tabs = [
   Tab(
-    text: "all",
+    text: langDef[all]![lang],
   ),
   Tab(
-    text: "nonRefurbished",
+    text: langDef[nonRefurbished]![lang],
   ),
   Tab(
-    text: "refurbished",
+    text: langDef[refurbished]![lang],
   ),
 ];
 
