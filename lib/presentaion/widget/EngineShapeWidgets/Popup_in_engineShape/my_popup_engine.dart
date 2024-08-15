@@ -75,6 +75,21 @@ class _MyPopupEngineState extends State<MyPopupEngine> {
 
             break;
           }
+        case 2 : {
+          showDialog(
+                context: context,
+                builder: (context) => MyAlertDialog(
+                      title: "غير متوفره",
+                      content: "يتم العمل عليها في الوقت الحالي",
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      btnName: "حسنا",
+                      showbtn2: false,
+                      onPressed2: () {},
+                    ));
+            break;
+        }
       }
     }, itemBuilder: (context) {
       return const [
@@ -85,6 +100,10 @@ class _MyPopupEngineState extends State<MyPopupEngine> {
         PopupMenuItem(
           value: 1,
           child: Text("نقل إلي القسم"),
+        ),
+        PopupMenuItem(
+          value: 2,
+          child: Text("تعديل المحرك"),
         ),
       ];
     });

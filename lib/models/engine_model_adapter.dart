@@ -5,9 +5,22 @@ class EngineModelAdapter extends TypeAdapter<EngineModel> {
   @override
   EngineModel read(BinaryReader reader) {
     return EngineModel(
-      reader.readInt(),
-      reader.readString(),
-      reader.readString(),
+      id: reader.readInt(),
+      state: reader.readString(),
+      logDate: reader.readString(),
+      logOutDate: reader.readString(),
+      washDate: reader.readString(),
+      crankDate: reader.readString(),
+      collectDate: reader.readString(),
+      cylinderDate: reader.readString(),
+      sprayDate: reader.readString(),
+      testDate: reader.readString(),
+      washStage: reader.readBool(),
+      crankStage: reader.readBool(),
+      collectStage: reader.readBool(),
+      cylinderStage: reader.readBool(),
+      sprayStage: reader.readBool(),
+      testStage: reader.readBool(),
     );
   }
 
@@ -19,5 +32,19 @@ class EngineModelAdapter extends TypeAdapter<EngineModel> {
     writer.writeInt(obj.id);
     writer.writeString(obj.state);
     writer.writeString(obj.logDate);
+    writer.writeString(obj.logOutDate);
+    writer.writeString(obj.washDate);
+    writer.writeString(obj.crankDate);
+    writer.writeString(obj.collectDate);
+    writer.writeString(obj.cylinderDate);
+    writer.writeString(obj.sprayDate);
+    writer.writeString(obj.testDate);
+
+    writer.writeBool(obj.washStage);
+    writer.writeBool(obj.crankStage);
+    writer.writeBool(obj.collectStage);
+    writer.writeBool(obj.cylinderStage);
+    writer.writeBool(obj.sprayStage);
+    writer.writeBool(obj.testStage);
   }
 }
