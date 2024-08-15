@@ -5,21 +5,24 @@ import 'package:bloc_learn/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class EngineShape extends StatelessWidget {
-  const EngineShape({super.key, required this.currEngine,});
+  const EngineShape({
+    super.key,
+    required this.currEngine,
+  });
 
   final EngineModel currEngine;
   @override
   Widget build(BuildContext context) {
     return Directionality(
       child: Container(
-        height: 100, //TODO will remove
+        // height: 100, //TODO will remove
         padding: const EdgeInsets.all(10),
         margin: const EdgeInsets.symmetric(vertical: 5),
         decoration: engineStyle,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            DataPart(currEngine:currEngine),
+            DataPart(currEngine: currEngine),
             ButtonsPart(), //TODO not worked yet
           ],
         ),
