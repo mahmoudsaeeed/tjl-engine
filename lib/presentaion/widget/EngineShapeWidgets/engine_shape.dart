@@ -47,6 +47,9 @@ class _EngineShapeState extends State<EngineShape> {
                 children: [
                   Directionality(
                       child: DataPart(currEngine: widget.currEngine)),
+                  
+                  //** the next part is specific to department page */
+                  
                   widget.pageName == department
                       ? Column(
                           children: [

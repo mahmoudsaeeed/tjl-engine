@@ -14,11 +14,9 @@ class DataPart extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
-            color: Colors.blue, child: RightDataEngine(currEngine: currEngine)),
+        RightDataEngine(currEngine: currEngine),
 
-        Container(
-            color: Colors.blue, child: MyPopupEngine(currEngine: currEngine))
+        MyPopupEngine(currEngine: currEngine)
       ],
     );
   }
