@@ -2,6 +2,7 @@ import 'package:bloc_learn/cubits/AddEngine/add_engine_cubit.dart';
 import 'package:bloc_learn/presentaion/widget/modal_sheet/add_engine_modal_shape.dart';
 import 'package:bloc_learn/utils/constants.dart';
 import 'package:bloc_learn/utils/def.dart';
+import 'package:bloc_learn/utils/widgets/my_alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -46,7 +47,9 @@ onSelected(int value, BuildContext context, int indexPage) {
           context: context,
           builder: (context) => BlocProvider(
             create: (context) => AddEngineCubit(),
-            child: const EngineModalShape(operate: addOperation,),  //* add
+            child: const EngineModalShape(
+              operate: addOperation,
+            ), //* add
           ),
         );
         break;
@@ -78,7 +81,22 @@ onSelected(int value, BuildContext context, int indexPage) {
 
     case 2:
       {
-        box.clear();
+        showDialog(
+            context: context,
+            builder: (context) {
+              return MyAlertDialog(
+                  title: "تأكيد حذف المحركات",
+                  content: "هل تريد حذف كل المحركات من وحدةالتخزين ؟",
+                  btnName: "نعم",
+                  onPressed: () {
+                    box.clear();
+                  },
+                  btnName2: "لا",
+                  onPressed2: () {
+                    Navigator.pop(context);
+                  },
+                  showbtn2: true);
+            });
       }
   }
 }
