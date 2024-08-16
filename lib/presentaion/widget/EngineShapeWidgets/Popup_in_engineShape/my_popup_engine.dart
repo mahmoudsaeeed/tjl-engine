@@ -27,7 +27,12 @@ class _MyPopupEngineState extends State<MyPopupEngine> {
             // BlocProvider.of<DisplayEngineDetailCubit>(context)
             //     .engineDetail(widget.currEngine);
 
-            Navigator.pushNamed(context, EngineDetail.id);
+            // Navigator.pushNamed(context, EngineDetail.id);
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        EngineDetail(currEngine: widget.currEngine)));
             break;
           }
 

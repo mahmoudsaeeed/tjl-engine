@@ -1,3 +1,4 @@
+import 'package:bloc_learn/models/engine_model.dart';
 import 'package:bloc_learn/utils/constants.dart';
 // import 'package:bloc_learn/utils/controllers.dart';
 // import 'package:bloc_learn/utils/widgets/custom_text_form_field.dart';
@@ -6,8 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class EngineDetail extends StatelessWidget {
-  const EngineDetail({super.key});
+  const EngineDetail({super.key, required this.currEngine});
   static const String id = "engine_detail";
+
+  final EngineModel currEngine;
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -15,20 +18,20 @@ class EngineDetail extends StatelessWidget {
         appBar: AppBar(),
         body: SingleChildScrollView(
           child: Container(
-            color: Colors.green,
+            // color: Colors.green,
             height: MediaQuery.sizeOf(context).height,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 //* id
                 MyDataRow(
-                  txtFieldController: "1",
+                  value: currEngine.id.toString(),
                   // txtFieldController: idEditController,
                   fieldText: langDef[engineID]![lang],
                 ),
                 //* state
                 MyDataRow(
-                  txtFieldController: "non_ref",
+                  value: currEngine.state,
                   // txtFieldController: stateEditController,
                   fieldText: langDef[state]![lang],
                 ),
@@ -40,19 +43,19 @@ class EngineDetail extends StatelessWidget {
                   children: [
                     //* login
                     MyDataRow(
-                      txtFieldController: "2022-2-22",
+                      value: currEngine.logDate,
                       // txtFieldController: logDateEditController,
                       fieldText: langDef[logDate]![lang],
                     ),
                     //*log out
                     MyDataRow(
-                      txtFieldController: "2022-4-22",
+                      value: currEngine.logOutDate,
                       // txtFieldController: logOutDateEditController,
-                      fieldText: langDef[logDate]![lang],
+                      fieldText: langDef[logOutDate]![lang],
                     ),
                   ],
                 ),
-                const OperationStages(),
+                OperationStages(currEngine: currEngine,),
 
                 const Gap(50),
 
@@ -82,39 +85,40 @@ class EngineDetail extends StatelessWidget {
 }
 
 class OperationStages extends StatelessWidget {
-  const OperationStages({super.key});
+  const OperationStages({super.key, required this.currEngine});
+
+  final EngineModel currEngine;
   @override
   Widget build(BuildContext context) {
-   
     return Column(
       children: [
         MyDataRow(
-          txtFieldController: "2022-2-24",
+          value: currEngine.washDate,
           // txtFieldController: washEditController,
           fieldText: operationsName[0],
         ),
         MyDataRow(
-          txtFieldController: "2022-3-10",
+          value: currEngine.crankDate,
           // txtFieldController: crankEditController,
           fieldText: operationsName[1],
         ),
         MyDataRow(
-          txtFieldController: "2022-3-15",
+          value: currEngine.collectDate,
           // txtFieldController: collectEditController,
           fieldText: operationsName[2],
         ),
         MyDataRow(
-          txtFieldController: "2022-3-20",
+          value: currEngine.cylinderDate,
           // txtFieldController: cylinderEditController,
           fieldText: operationsName[3],
         ),
         MyDataRow(
-          txtFieldController: "2022-3-29",
+          value: currEngine.sprayDate,
           // txtFieldController: sprayEditController,
           fieldText: operationsName[4],
         ),
         MyDataRow(
-          txtFieldController: "2022-4-20",
+          value: currEngine.testDate,
           // txtFieldController: testEditController,
           fieldText: operationsName[5],
         ),
@@ -126,10 +130,10 @@ class OperationStages extends StatelessWidget {
 class MyDataRow extends StatelessWidget {
   const MyDataRow({
     super.key,
-    required this.txtFieldController,
+    required this.value,
     required this.fieldText,
   });
-  final String txtFieldController;
+  final String value;
   // final TextEditingController txtFieldController;
   final String fieldText;
   @override
@@ -141,13 +145,13 @@ class MyDataRow extends StatelessWidget {
           Container(
               margin: const EdgeInsets.symmetric(vertical: 10),
               width: 100,
-              color: Colors.amber,
+              // color: Colors.amber,
               child: Text(fieldText)),
           const Gap(10),
           Container(
               margin: const EdgeInsets.symmetric(vertical: 10),
-              color: Colors.amber,
-              child: Text(txtFieldController)),
+              // color: Colors.amber,
+              child: Text(value)),
           // CustomTextFormField(
           //   controller: txtFieldController,
           //   readOnly: true,
