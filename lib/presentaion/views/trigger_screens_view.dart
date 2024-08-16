@@ -1,7 +1,7 @@
 // import 'package:bloc_learn/cubits/DisplayEngine/display_engine_cubit.dart';
-import 'package:bloc_learn/presentaion/views/Screens/all_screen.dart';
-import 'package:bloc_learn/presentaion/views/Screens/non_ref_screen.dart';
-import 'package:bloc_learn/presentaion/views/Screens/ref_screen.dart';
+import 'package:bloc_learn/presentaion/views/Screens/HomeScreen/all_screen.dart';
+import 'package:bloc_learn/presentaion/views/Screens/HomeScreen/non_ref_screen.dart';
+import 'package:bloc_learn/presentaion/views/Screens/HomeScreen/ref_screen.dart';
 import 'package:bloc_learn/utils/constants.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
