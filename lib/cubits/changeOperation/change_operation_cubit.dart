@@ -1,162 +1,100 @@
-import 'package:bloc_learn/utils/controllers.dart';
+import 'package:bloc_learn/models/engine_model.dart';
 import 'package:bloc_learn/utils/def.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class EngineModel extends HiveObject {
-  final int id;
-  final String state;
-  final String logDate;
-  final String logOutDate;
+part 'change_operation_state.dart';
 
-  final bool washStage;
-  final bool crankStage;
-  final bool collectStage;
-  final bool cylinderStage;
-  final bool sprayStage;
-  final bool testStage;
+class ChangeOperationCubit extends Cubit<ChangeOperationState> {
+  ChangeOperationCubit() : super(ChangeOperationInitial());
 
-  final String washDate;
-  final String crankDate;
-  final String collectDate;
-  final String cylinderDate;
-  final String sprayDate;
-  final String testDate;
-
-  EngineModel({
-    required this.id,
-    required this.state,
-    required this.logDate,
-    this.logOutDate = "",
-    this.washDate = "",
-    this.crankDate = "",
-    this.collectDate = "",
-    this.cylinderDate = "",
-    this.sprayDate = "",
-    this.testDate = "",
-    this.washStage = false,
-    this.crankStage = false,
-    this.collectStage = false,
-    this.cylinderStage = false,
-    this.sprayStage = false,
-    this.testStage = false,
-  });
-
-//TODO here we will use controller for each property from edit page
-
-  factory EngineModel.editEngine(EngineModel engine) {
-    return EngineModel(
-      id: int.parse(idController.value.text),
-      state: stateController.value.text,
-      logDate: logDateController.value.text,
-      logOutDate: engine.logOutDate,
-      washDate: engine.washDate,
-      crankDate: engine.crankDate,
-      collectDate: engine.collectDate,
-      cylinderDate: engine.cylinderDate,
-      sprayDate: engine.sprayDate,
-      testDate: engine.testDate,
-      washStage: engine.washStage,
-      crankStage: engine.crankStage,
-      collectStage: engine.collectStage,
-      cylinderStage: engine.cylinderStage,
-      sprayStage: engine.sprayStage,
-      testStage: engine.testStage,
-    );
-  }
-  factory EngineModel.editState(EngineModel engine, String state) {
-    return EngineModel(
-      id: engine.id,
-      state: state,
-      logDate: engine.logDate,
-      logOutDate: engine.logOutDate,
-      washDate: engine.washDate,
-      crankDate: engine.crankDate,
-      collectDate: engine.collectDate,
-      cylinderDate: engine.cylinderDate,
-      sprayDate: engine.sprayDate,
-      testDate: engine.testDate,
-      washStage: engine.washStage,
-      crankStage: engine.crankStage,
-      collectStage: engine.collectStage,
-      cylinderStage: engine.cylinderStage,
-      sprayStage: engine.sprayStage,
-      testStage: engine.testStage,
-    );
-  }
-
-  factory EngineModel.changeStage(
-      int operationNo, EngineModel engine, bool state) {
+  EngineModel? newEngine;
+  changeState(int operationNo, int indexCurrEngineInBox) {
+    EngineModel engine = box.getAt(indexCurrEngineInBox)!;
     switch (operationNo) {
       //* wash
       case 0:
         {
-          return EngineModel(
+          newEngine = EngineModel(
             id: engine.id,
             state: engine.state,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
-            washDate: state ? myDateTime : "",
+            washDate: !engine.washStage ? myDateTime : "",
             crankDate: engine.crankDate,
             collectDate: engine.collectDate,
             cylinderDate: engine.cylinderDate,
             sprayDate: engine.sprayDate,
             testDate: engine.testDate,
-            washStage: state,
+            washStage: !engine.washStage,
             crankStage: engine.crankStage,
             collectStage: engine.collectStage,
             cylinderStage: engine.cylinderStage,
             sprayStage: engine.sprayStage,
             testStage: engine.testStage,
           );
+
+          box.putAt(indexCurrEngineInBox, newEngine!);
+                    debugPrint("wash stage : ${newEngine!.washStage}  on Date ${newEngine!.washDate}");
+
+          emit(ChangeOperationSuccess());
         }
       //* crank
       case 1:
         {
-          return EngineModel(
+          newEngine = EngineModel(
             id: engine.id,
             state: engine.state,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
-            crankDate: state ? myDateTime : "",
+            crankDate: !engine.crankStage ? myDateTime : "",
             collectDate: engine.collectDate,
             cylinderDate: engine.cylinderDate,
             sprayDate: engine.sprayDate,
             testDate: engine.testDate,
             washStage: engine.washStage,
-            crankStage: state,
+            crankStage: !engine.crankStage,
             collectStage: engine.collectStage,
             cylinderStage: engine.cylinderStage,
             sprayStage: engine.sprayStage,
             testStage: engine.testStage,
           );
+
+          box.putAt(indexCurrEngineInBox, newEngine!);
+          debugPrint("crank stage : ${newEngine!.crankStage}  on Date ${newEngine!.crankDate}");
+          emit(ChangeOperationSuccess());
         }
       //* collect
       case 2:
         {
-          return EngineModel(
+          newEngine = EngineModel(
             id: engine.id,
             state: engine.state,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
             crankDate: engine.crankDate,
-            collectDate: state ? myDateTime : "",
+            collectDate: !engine.collectStage ? myDateTime : "",
             cylinderDate: engine.cylinderDate,
             sprayDate: engine.sprayDate,
             testDate: engine.testDate,
             washStage: engine.washStage,
             crankStage: engine.crankStage,
-            collectStage: state,
+            collectStage: !engine.collectStage,
             cylinderStage: engine.cylinderStage,
             sprayStage: engine.sprayStage,
             testStage: engine.testStage,
           );
+
+          box.putAt(indexCurrEngineInBox, newEngine!);
+          debugPrint("collect stage : ${newEngine!.collectStage}  on Date ${newEngine!.collectDate}");
+          emit(ChangeOperationSuccess());
         }
       //* cylinder
       case 3:
         {
-          return EngineModel(
+          newEngine = EngineModel(
             id: engine.id,
             state: engine.state,
             logDate: engine.logDate,
@@ -164,21 +102,26 @@ class EngineModel extends HiveObject {
             washDate: engine.washDate,
             crankDate: engine.crankDate,
             collectDate: engine.collectDate,
-            cylinderDate: state ? myDateTime : "",
+            cylinderDate: !engine.cylinderStage ? myDateTime : "",
             sprayDate: engine.sprayDate,
             testDate: engine.testDate,
             washStage: engine.washStage,
             crankStage: engine.crankStage,
             collectStage: engine.collectStage,
-            cylinderStage: state,
+            cylinderStage: !engine.cylinderStage,
             sprayStage: engine.sprayStage,
             testStage: engine.testStage,
           );
+
+          box.putAt(indexCurrEngineInBox, newEngine!);
+                    debugPrint("cylinder stage : ${newEngine!.cylinderStage}  on Date ${newEngine!.cylinderDate}");
+
+          emit(ChangeOperationSuccess());
         }
       //* spray
       case 4:
         {
-          return EngineModel(
+          newEngine = EngineModel(
             id: engine.id,
             state: engine.state,
             logDate: engine.logDate,
@@ -187,20 +130,24 @@ class EngineModel extends HiveObject {
             crankDate: engine.crankDate,
             collectDate: engine.collectDate,
             cylinderDate: engine.cylinderDate,
-            sprayDate: state ? myDateTime : "",
+            sprayDate: !engine.sprayStage ? myDateTime : "",
             testDate: engine.testDate,
             washStage: engine.washStage,
             crankStage: engine.crankStage,
             collectStage: engine.collectStage,
             cylinderStage: engine.cylinderStage,
-            sprayStage: state,
+            sprayStage: !engine.sprayStage,
             testStage: engine.testStage,
           );
+          box.putAt(indexCurrEngineInBox, newEngine!);
+                    debugPrint("spray stage : ${newEngine!.sprayStage}  on Date ${newEngine!.sprayDate}");
+
+          emit(ChangeOperationSuccess());
         }
       //* test
       case 5:
         {
-          return EngineModel(
+          newEngine = EngineModel(
             id: engine.id,
             state: engine.state,
             logDate: engine.logDate,
@@ -210,17 +157,20 @@ class EngineModel extends HiveObject {
             collectDate: engine.collectDate,
             cylinderDate: engine.cylinderDate,
             sprayDate: engine.sprayDate,
-            testDate: state ? myDateTime : "",
+            testDate: !engine.testStage ? myDateTime : "",
             washStage: engine.washStage,
             crankStage: engine.crankStage,
             collectStage: engine.collectStage,
             cylinderStage: engine.cylinderStage,
             sprayStage: engine.sprayStage,
-            testStage: state,
+            testStage: !engine.testStage,
           );
+
+          box.putAt(indexCurrEngineInBox, newEngine!);
+                    debugPrint("test stage : ${newEngine!.testStage}  on Date ${newEngine!.testDate}");
+
+          emit(ChangeOperationSuccess());
         }
     }
-
-    return engine;
   }
 }

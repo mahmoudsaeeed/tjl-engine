@@ -37,3 +37,13 @@ const Map<String, List<String>> langDef = {
 
   state : ["State" , "الحالة"],
 };
+
+
+ final List<String> operationsName = [
+      langDef[washStage]![lang],
+      langDef[crankStage]![lang],
+      langDef[collectStage]![lang],
+      langDef[cylinderStage]![lang],
+      langDef[sprayStage]![lang],
+      langDef[testStage]![lang],
+    ];

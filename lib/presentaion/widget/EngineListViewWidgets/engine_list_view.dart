@@ -3,8 +3,9 @@ import 'package:bloc_learn/presentaion/widget/EngineShapeWidgets/engine_shape.da
 import 'package:flutter/material.dart';
 
 class EngineListView extends StatelessWidget {
-  const EngineListView({super.key, required this.currList});
+  const EngineListView({super.key, required this.currList, required this.pageName});
   final List<EngineModel> currList;
+  final String pageName;
   @override
   Widget build(BuildContext context) {
     debugPrint("${currList.length}");
@@ -14,7 +15,7 @@ class EngineListView extends StatelessWidget {
         itemCount: currList.length,
         itemBuilder: (context, index) {
           EngineModel currEngine = currList[index];
-          return EngineShape(currEngine: currEngine, index : index);
+          return EngineShape(currEngine: currEngine, index: index, pageName: pageName,);
         },
       ),
     );

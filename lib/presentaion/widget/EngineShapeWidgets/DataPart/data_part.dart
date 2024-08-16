@@ -4,15 +4,21 @@ import 'package:bloc_learn/presentaion/widget/EngineShapeWidgets/Popup_in_engine
 import 'package:flutter/material.dart';
 
 class DataPart extends StatelessWidget {
-  const DataPart({super.key, required this.currEngine,});
+  const DataPart({
+    super.key,
+    required this.currEngine,
+  });
   final EngineModel currEngine;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        RightDataEngine(currEngine:currEngine),
-        MyPopupEngine(currEngine : currEngine)
+        Container(
+            color: Colors.blue, child: RightDataEngine(currEngine: currEngine)),
+
+        Container(
+            color: Colors.blue, child: MyPopupEngine(currEngine: currEngine))
       ],
     );
   }

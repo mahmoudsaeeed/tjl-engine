@@ -85,14 +85,7 @@ class OperationStages extends StatelessWidget {
   const OperationStages({super.key});
   @override
   Widget build(BuildContext context) {
-    final List<String> operationsName = [
-      langDef[washStage]![lang],
-      langDef[crankStage]![lang],
-      langDef[collectStage]![lang],
-      langDef[cylinderStage]![lang],
-      langDef[sprayStage]![lang],
-      langDef[testStage]![lang],
-    ];
+   
     return Column(
       children: [
         MyDataRow(
