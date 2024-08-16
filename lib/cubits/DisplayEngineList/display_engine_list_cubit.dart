@@ -1,10 +1,10 @@
 import 'package:bloc_learn/models/engine_model.dart';
 import 'package:bloc_learn/utils/def.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-part 'display_engine_state.dart';
+part 'display_engine_list_state.dart';
 
-class DisplayEngineCubit extends Cubit<List<EngineModel>> {
-  DisplayEngineCubit() : super([]);
+class DisplayEngineListCubit extends Cubit<List<EngineModel>> {
+  DisplayEngineListCubit() : super([]);
 
   List<EngineModel>? currList;
   fetchAllData(int pageIndex) {

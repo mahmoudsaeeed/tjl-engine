@@ -28,6 +28,7 @@ class EngineModalShape extends StatelessWidget {
             const Gap(20),
             CustomTextFormField(
               controller: idController,
+              hintText: "رقم المحرك",
             ),
             const Gap(10),
             // CustomTextFormField(controller: stateController),
@@ -41,7 +42,7 @@ class EngineModalShape extends StatelessWidget {
                   case addOperation:
                     {
                       BlocProvider.of<AddEngineCubit>(context).addEngine();
-                      // BlocProvider.of<DisplayEngineCubit>(context).fetchAllData(0);
+                      // BlocProvider.of<DisplayEngineListCubit>(context).fetchAllData(0);
                       showDialog(
                           context: context,
                           builder: (context) {
@@ -59,9 +60,10 @@ class EngineModalShape extends StatelessWidget {
                           });
                       break;
                     }
-                  case editOperation : {
-                    //TODO here codes of editing modal
-                  }
+                  case editOperation:
+                    {
+                      //TODO here codes of editing modal
+                    }
                 }
               },
               child: Text(operate!),

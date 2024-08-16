@@ -1,5 +1,9 @@
+// import 'package:bloc_learn/cubits/DisplayEngineDetail/display_engine_detail_cubit.dart';
+// import 'package:bloc_learn/cubits/DisplayEngineDetail/display_engine_detail_cubit.dart';
 import 'package:bloc_learn/cubits/EditEngine/edit_engine_cubit.dart';
 import 'package:bloc_learn/models/engine_model.dart';
+import 'package:bloc_learn/presentaion/views/Screens/engine_detail.dart';
+// import 'package:bloc_learn/presentaion/views/Screens/engine_detail.dart';
 import 'package:bloc_learn/presentaion/views/main_view.dart';
 import 'package:bloc_learn/utils/widgets/my_alert_dialog.dart';
 import 'package:flutter/material.dart';
@@ -20,18 +24,10 @@ class _MyPopupEngineState extends State<MyPopupEngine> {
       switch (value) {
         case 0:
           {
-            showDialog(
-                context: context,
-                builder: (context) => MyAlertDialog(
-                      title: "غير متوفره",
-                      content: "يتم العمل عليها في الوقت الحالي",
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      btnName: "حسنا",
-                      showbtn2: false,
-                      onPressed2: () {},
-                    ));
+            // BlocProvider.of<DisplayEngineDetailCubit>(context)
+            //     .engineDetail(widget.currEngine);
+
+            Navigator.pushNamed(context, EngineDetail.id);
             break;
           }
 
@@ -75,8 +71,9 @@ class _MyPopupEngineState extends State<MyPopupEngine> {
 
             break;
           }
-        case 2 : {
-          showDialog(
+        case 2:
+          {
+            showDialog(
                 context: context,
                 builder: (context) => MyAlertDialog(
                       title: "غير متوفره",
@@ -89,7 +86,7 @@ class _MyPopupEngineState extends State<MyPopupEngine> {
                       onPressed2: () {},
                     ));
             break;
-        }
+          }
       }
     }, itemBuilder: (context) {
       return const [

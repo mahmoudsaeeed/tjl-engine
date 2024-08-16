@@ -73,24 +73,28 @@ class EngineModel extends HiveObject {
   
   factory EngineModel.editState(EngineModel engine, String state) {
     return EngineModel(
-      id: engine.id,
-      state: state,
-      logDate: engine.logDate,
-      logOutDate: engine.logOutDate,
+      id          : engine.id,
+      state       : state,
+      logDate     : engine.logDate,
+      logOutDate  : engine.logOutDate,
 
-      washDate: engine.washDate,
-      crankDate: engine.crankDate,
-      collectDate: engine.collectDate,
+      washDate    : engine.washDate,
+      crankDate   : engine.crankDate,
+      collectDate : engine.collectDate,
       cylinderDate: engine.cylinderDate,
-      sprayDate: engine.sprayDate,
-      testDate: engine.testDate,
+      sprayDate   : engine.sprayDate,
+      testDate    : engine.testDate,
 
-      washStage: engine.washStage,
-      crankStage: engine.crankStage,
+      washStage   : engine.washStage,
+      crankStage  : engine.crankStage,
       collectStage: engine.collectStage,
       cylinderStage: engine.cylinderStage,
-      sprayStage: engine.sprayStage,
-      testStage: engine.testStage,
+      sprayStage  : engine.sprayStage,
+      testStage   : engine.testStage,
     );
   }
+
+
+
+ 
 }

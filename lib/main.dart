@@ -1,6 +1,7 @@
 import 'dart:io';
 
-import 'package:bloc_learn/cubits/DisplayEngine/display_engine_cubit.dart';
+import 'package:bloc_learn/cubits/DisplayEngineDetail/display_engine_detail_cubit.dart';
+import 'package:bloc_learn/cubits/DisplayEngineList/display_engine_list_cubit.dart';
 import 'package:bloc_learn/cubits/EditEngine/edit_engine_cubit.dart';
 import 'package:bloc_learn/cubits/simple_observer.dart';
 import 'package:bloc_learn/models/engine_model.dart';
@@ -19,7 +20,6 @@ void main() async {
   Bloc.observer = SimpleObserver();
   Directory dir = await getApplicationDocumentsDirectory();
   Hive.registerAdapter(EngineModelAdapter());
-
   await Hive.openBox<EngineModel>(knameBox, path: dir.path);
 
   runApp(const MyApp());
@@ -34,10 +34,13 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => DisplayEngineCubit(),
+          create: (context) => DisplayEngineListCubit(),
         ),
         BlocProvider(
           create: (context) => EditEngineCubit(),
+        ),
+        BlocProvider(
+          create: (context) => DisplayEngineDetailCubit(),
         ),
       ],
       child: MaterialApp(

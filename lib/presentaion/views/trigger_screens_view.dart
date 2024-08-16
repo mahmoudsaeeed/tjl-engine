@@ -15,7 +15,6 @@ class TriggerScreensView extends StatefulWidget {
 
 class _TriggerScreensViewState extends State<TriggerScreensView>
     with SingleTickerProviderStateMixin {
-
   late TabController _tabController;
   @override
   void initState() {
@@ -23,25 +22,25 @@ class _TriggerScreensViewState extends State<TriggerScreensView>
 
     //*/* this provider is execute one time when just open the app
     //*/* it reloads data at first time
-    // BlocProvider.of<DisplayEngineCubit>(context)
+    // BlocProvider.of<DisplayEngineListCubit>(context)
     //     .fetchAllData(_tabController.index);
 
     // _tabController.addListener(
     //   () {
     //     if (_tabController.indexIsChanging) {
     //       debugPrint("current index = ${_tabController.index}");
-    //       BlocProvider.of<DisplayEngineCubit>(context)
+    //       BlocProvider.of<DisplayEngineListCubit>(context)
     //           .fetchAllData(_tabController.index);
     //     }
-        // else {
-        //   debugPrint("current index = ${_tabController.index}");
-        //   debugPrint("current offest = ${_tabController.offset}");
-        //   debugPrint("animation = ${_tabController.animationDuration}");
-        //   debugPrint("${_tabController.indexIsChanging}");
-        // }
+    // else {
+    //   debugPrint("current index = ${_tabController.index}");
+    //   debugPrint("current offest = ${_tabController.offset}");
+    //   debugPrint("animation = ${_tabController.animationDuration}");
+    //   debugPrint("${_tabController.indexIsChanging}");
+    // }
 
-        //TODO here we will propaplly use it
-      // },
+    //TODO here we will propaplly use it
+    // },
     // );
     super.initState();
   }
@@ -58,7 +57,7 @@ class _TriggerScreensViewState extends State<TriggerScreensView>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: const[
+        children: const [
           AllScreen(),
           NonRefScreen(),
           RefScreen(),
