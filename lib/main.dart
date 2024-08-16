@@ -6,6 +6,7 @@ import 'package:bloc_learn/cubits/EditEngine/edit_engine_cubit.dart';
 import 'package:bloc_learn/cubits/simple_observer.dart';
 import 'package:bloc_learn/models/engine_model.dart';
 import 'package:bloc_learn/models/engine_model_adapter.dart';
+import 'package:bloc_learn/presentaion/views/Screens/engine_operation.dart';
 import 'package:bloc_learn/presentaion/views/main_view.dart';
 import 'package:bloc_learn/utils/constants.dart';
 import 'package:bloc_learn/utils/my_routes.dart';
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         routes: myRoutes,
-        home: const MainView(),
+        home: const EngineOperation(),
       ),
     );
   }
