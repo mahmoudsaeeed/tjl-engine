@@ -29,13 +29,11 @@ class EngineModalShape extends StatelessWidget {
             CustomTextFormField(
               controller: idController,
               hintText: "رقم المحرك",
+              readOnly: false,
             ),
             const Gap(10),
-            // CustomTextFormField(controller: stateController),
             MyDropDownState(controller: stateController),
-            // CustomTextFormField(controller: idController),
             const Gap(100),
-
             ElevatedButton(
               onPressed: () {
                 switch (operate) {
@@ -54,7 +52,7 @@ class EngineModalShape extends StatelessWidget {
                                 // Navigator.pushNamedAndRemoveUntil(
                                 //     context, MainView.id, (route) => false);
                                 BlocProvider.of<DisplayEngineListCubit>(context)
-                                    .fetchAllData(0);  //TODO 
+                                    .fetchAllData(0); //TODO
                                 //TODO fetchAllDate is referch current page but i don't have currPagèe index
                                 Navigator.pop(context);
                               },

@@ -1,16 +1,20 @@
 import 'package:bloc_learn/models/engine_model.dart';
+import 'package:bloc_learn/presentaion/widget/EngineDetailViewWidgets/my_data_row.dart';
+import 'package:bloc_learn/presentaion/widget/EngineDetailViewWidgets/operation_stages.dart';
+import 'package:bloc_learn/presentaion/widget/EngineShapeWidgets/Popup_in_engineShape/ModifyEngine/modify_engine.dart';
 import 'package:bloc_learn/utils/constants.dart';
+import 'package:bloc_learn/utils/methods/initial_data_in_edit_page.dart';
 // import 'package:bloc_learn/utils/controllers.dart';
 // import 'package:bloc_learn/utils/widgets/custom_text_form_field.dart';
-import 'package:bloc_learn/utils/widgets/AlertDialog/my_alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class EngineDetail extends StatelessWidget {
-  const EngineDetail({super.key, required this.currEngine});
+  const EngineDetail({super.key, required this.currEngine, required this.currPage});
   static const String id = "engine_detail";
 
   final EngineModel currEngine;
+  final int currPage;
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -55,24 +59,25 @@ class EngineDetail extends StatelessWidget {
                     ),
                   ],
                 ),
-                OperationStages(currEngine: currEngine,),
+                OperationStages(
+                  currEngine: currEngine,
+                ),
 
                 const Gap(50),
 
                 ElevatedButton(
                     onPressed: () {
-                      showDialog(
-                          context: context,
-                          builder: (context) => MyAlertDialog(
-                                title: "غير متوفره",
-                                content: "يتم العمل عليها في الوقت الحالي",
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                btnName: "حسنا",
-                                showbtn2: false,
-                                onPressed2: () {},
-                              ));
+                      setInitialData(currEngine);
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ModifyEngine(
+                            currEngine: currEngine,
+                            currPage: currPage,
+                          ),
+                        ),
+                      );
                     },
                     child: Text("تعديل المحرك"))
               ],
@@ -84,80 +89,5 @@ class EngineDetail extends StatelessWidget {
   }
 }
 
-class OperationStages extends StatelessWidget {
-  const OperationStages({super.key, required this.currEngine});
 
-  final EngineModel currEngine;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        MyDataRow(
-          value: currEngine.washDate,
-          // txtFieldController: washEditController,
-          fieldText: operationsName[0],
-        ),
-        MyDataRow(
-          value: currEngine.crankDate,
-          // txtFieldController: crankEditController,
-          fieldText: operationsName[1],
-        ),
-        MyDataRow(
-          value: currEngine.collectDate,
-          // txtFieldController: collectEditController,
-          fieldText: operationsName[2],
-        ),
-        MyDataRow(
-          value: currEngine.cylinderDate,
-          // txtFieldController: cylinderEditController,
-          fieldText: operationsName[3],
-        ),
-        MyDataRow(
-          value: currEngine.sprayDate,
-          // txtFieldController: sprayEditController,
-          fieldText: operationsName[4],
-        ),
-        MyDataRow(
-          value: currEngine.testDate,
-          // txtFieldController: testEditController,
-          fieldText: operationsName[5],
-        ),
-      ],
-    );
-  }
-}
 
-class MyDataRow extends StatelessWidget {
-  const MyDataRow({
-    super.key,
-    required this.value,
-    required this.fieldText,
-  });
-  final String value;
-  // final TextEditingController txtFieldController;
-  final String fieldText;
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 200,
-      child: Row(
-        children: [
-          Container(
-              margin: const EdgeInsets.symmetric(vertical: 10),
-              width: 100,
-              // color: Colors.amber,
-              child: Text(fieldText)),
-          const Gap(10),
-          Container(
-              margin: const EdgeInsets.symmetric(vertical: 10),
-              // color: Colors.amber,
-              child: Text(value)),
-          // CustomTextFormField(
-          //   controller: txtFieldController,
-          //   readOnly: true,
-          // )
-        ],
-      ),
-    );
-  }
-}

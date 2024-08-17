@@ -1,3 +1,6 @@
+import 'package:bloc_learn/utils/controllers.dart';
+import 'package:flutter/material.dart';
+
 const knameBox = "engines";
 
 const String addOperation = "Add Engine";
@@ -19,9 +22,6 @@ const String testStage = "testStage";
 
 const String state = "state";
 
-const String agree = "yes";
-const String disagree = "no";
-
 const int lang = 1;
 
 const Map<String, List<String>> langDef = {
@@ -38,9 +38,12 @@ const Map<String, List<String>> langDef = {
   sprayStage: ["", "رشاشات"],
   testStage: ["", "اختبار"],
   state: ["State", "الحالة"],
-  agree: ["Yes", "نعم"],
-  disagree: ["No", "لا"],
 };
+
+
+//* مستخدمين في صفحة
+//* engine_detail
+
 
 final List<String> operationsName = [
   langDef[washStage]![lang],
@@ -51,8 +54,45 @@ final List<String> operationsName = [
   langDef[testStage]![lang],
 ];
 
-// const String moveTitle = "تأكيد عملية النقل";
-// const String deleteTitle = "تأكيد عملية الحذف";
+
+//* fieldsName , editController , infoEditingState  used in my_data_row_in_modify_engine
+final List<String> fieldsName = [
+  langDef[engineID]![lang],
+  langDef[state]![lang],
+  langDef[logDate]![lang],
+  langDef[logOutDate]![lang],
+  langDef[washStage]![lang],
+  langDef[crankStage]![lang],
+  langDef[collectStage]![lang],
+  langDef[cylinderStage]![lang],
+  langDef[sprayStage]![lang],
+  langDef[testStage]![lang],
+];
+final List<TextEditingController> editControllers = [
+  idEditController,
+  stateEditController,
+  logDateEditController,
+  logOutDateEditController,
+  washEditController,
+  crankEditController,
+  collectEditController,
+  cylinderEditController,
+  sprayEditController,
+  testEditController
+];
+
+List infoEditingState = [
+  false, //* id
+  false, //* state
+  false, //* logDate
+  false, //* logOutDate
+  false, //* wash
+  false, //* crank
+  false, //* collect
+  false, //* cylinder
+  false, //* spray
+  false, //* test
+];
 
 class MyAlertDialogText {
   MyAlertDialogText(

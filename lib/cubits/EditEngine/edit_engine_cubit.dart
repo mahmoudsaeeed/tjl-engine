@@ -8,10 +8,10 @@ part 'edit_engine_state.dart';
 class EditEngineCubit extends Cubit<EditEngineState> {
   EditEngineCubit() : super(EditEngineInitial());
 
-  editEngine(EngineModel currEngine) {
+  editEngine(EngineModel currEngine , int indexField) {
     int boxIndex = getIndexInBox(currEngine);
 
-    EngineModel newEngine = EngineModel.editEngine(box.getAt(boxIndex)!);
+    EngineModel newEngine = EngineModel.editEngine(box.getAt(boxIndex)! , indexField);
 
     box.putAt(boxIndex, newEngine);
   }

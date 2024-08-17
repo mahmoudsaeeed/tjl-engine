@@ -4,8 +4,10 @@ import 'package:bloc_learn/cubits/DisplayEngineList/display_engine_list_cubit.da
 import 'package:bloc_learn/cubits/EditEngine/edit_engine_cubit.dart';
 import 'package:bloc_learn/models/engine_model.dart';
 import 'package:bloc_learn/presentaion/views/Screens/engine_detail.dart';
+import 'package:bloc_learn/presentaion/widget/EngineShapeWidgets/Popup_in_engineShape/ModifyEngine/modify_engine.dart';
 // import 'package:bloc_learn/presentaion/views/Screens/engine_detail.dart';
 import 'package:bloc_learn/utils/constants.dart';
+import 'package:bloc_learn/utils/methods/initial_data_in_edit_page.dart';
 import 'package:bloc_learn/utils/widgets/AlertDialog/my_alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,7 +33,7 @@ class MyPopupEngine extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        EngineDetail(currEngine: currEngine)));
+                        EngineDetail(currEngine: currEngine, currPage: currPage,)));
             break;
           }
 
@@ -83,19 +85,17 @@ class MyPopupEngine extends StatelessWidget {
           }
         case 2:
           {
-            showDialog(
-                context: context,
-                builder: (context) => MyAlertDialog(
-                      title: "غير متوفره",
-                      content: "يتم العمل عليها في الوقت الحالي",
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      btnName: "حسنا",
-                      showbtn2: false,
-                      onPressed2: () {},
-                    ));
-            break;
+            setInitialData(currEngine);
+
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ModifyEngine(
+                  currEngine: currEngine,
+                  currPage: currPage,
+                ),
+              ),
+            );
           }
       }
     }, itemBuilder: (context) {
