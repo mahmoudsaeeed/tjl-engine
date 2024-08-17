@@ -51,20 +51,35 @@ final List<String> operationsName = [
   langDef[testStage]![lang],
 ];
 
-const String moveTitle = "تأكيد عملية النقل";
+// const String moveTitle = "تأكيد عملية النقل";
+// const String deleteTitle = "تأكيد عملية الحذف";
 
-String moveContent(int id) {
-  return "هل تريد نقل المحرك $id ؟ ";
+class MyAlertDialogText {
+  MyAlertDialogText(
+    this.operation,
+    this.id,
+  );
+  final String operation;
+  final int id;
+
+  String operationTitle() {
+    return "تأكيد عملية ال$operation";
+  }
+
+  String operationConfirmContent() {
+    return "هل تريد $operation المحرك $id ؟ ";
+  }
+
+  String operationSuccessContent() {
+    return "تمت عملية $operation المحرك بنجاح  يرجي الانتقال للصفحة الرئيسية";
+  }
+
+  String backToMain = "يرجي الانتقال للصفحة الرئيسية";
 }
 
-const String movedSuccessContent =
-    "تمت عملية نقل المحرك بنجاح  يرجي الانتقال للصفحة الرئيسية";
-
-const String backToMain = "يرجي الانتقال للصفحة الرئيسية";
-
 Map<String, int> pageIndexIn = {
-  all : 0,
-  nonRefurbished : 1 ,
-  refurbished : 2 , 
-  department : 3
+  all: 0,
+  nonRefurbished: 1,
+  refurbished: 2,
+  department: 3
 };

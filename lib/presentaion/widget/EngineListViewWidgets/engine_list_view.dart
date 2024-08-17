@@ -1,9 +1,10 @@
 import 'package:bloc_learn/models/engine_model.dart';
-import 'package:bloc_learn/presentaion/widget/EngineShapeWidgets/engine_shape.dart';
+import 'package:bloc_learn/presentaion/widget/deleteEngineWidgets/my_dismissible.dart';
 import 'package:flutter/material.dart';
 
 class EngineListView extends StatelessWidget {
-  const EngineListView({super.key, required this.currList, required this.pageNumber});
+  const EngineListView(
+      {super.key, required this.currList, required this.pageNumber});
   final List<EngineModel> currList;
   final int pageNumber;
   @override
@@ -15,7 +16,8 @@ class EngineListView extends StatelessWidget {
         itemCount: currList.length,
         itemBuilder: (context, index) {
           EngineModel currEngine = currList[index];
-          return EngineShape(currEngine: currEngine, index: index, pageNumber: pageNumber,);
+          return MyDismissible(
+              currEngine: currEngine, index: index, pageNumber: pageNumber);
         },
       ),
     );

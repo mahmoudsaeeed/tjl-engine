@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 BoxDecoration engineStyle = BoxDecoration(
-  borderRadius: BorderRadius.circular(20),
+  borderRadius:
+      BorderRadius.horizontal(left: Radius.circular(20), right: Radius.zero),
   color: Colors.blueGrey,
 );
 

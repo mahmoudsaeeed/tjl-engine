@@ -21,15 +21,17 @@ class _DepartViewState extends State<DepartView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: BlocBuilder<DisplayEngineListCubit, List<EngineModel>>(
-        builder: (context, currList) {
-          return EngineListView(
-            //*  3 depart
-            currList: currList, pageNumber: pageIndexIn[department]!,
-          );
-        },
+    return Directionality(
+      child: Scaffold(
+        appBar: AppBar(),
+        body: BlocBuilder<DisplayEngineListCubit, List<EngineModel>>(
+          builder: (context, currList) {
+            return EngineListView(
+              //*  3 depart
+              currList: currList, pageNumber: pageIndexIn[department]!,
+            );
+          },
+        ),
       ),
     );
   }

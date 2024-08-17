@@ -39,41 +39,44 @@ class MyPopupEngine extends StatelessWidget {
           {
             showDialog(
               context: context,
-              builder: (context) => MyAlertDialog(
-                title: moveTitle,
-                content: moveContent(currEngine.id),
-                onPressed: () {
-                  BlocProvider.of<EditEngineCubit>(context)
-                      .moveTo(currEngine, department);
-                  //* move to part
+              builder: (context) {
+                MyAlertDialogText myText =
+                    MyAlertDialogText("نقل", currEngine.id);
+                return MyAlertDialog(
+                  title: myText.operationTitle(),
+                  content: myText.operationConfirmContent(),
+                  onPressed: () {
+                    BlocProvider.of<EditEngineCubit>(context)
+                        .moveTo(currEngine, department);
+                    //* move to part
 
-                  BlocProvider.of<DisplayEngineListCubit>(context)
-                            .fetchAllData(currPage);
-                        Navigator.pop(context);
+                    BlocProvider.of<DisplayEngineListCubit>(context)
+                        .fetchAllData(currPage);
+                    Navigator.pop(context);
 
-                  // //TODO   here we will use currEngine in edit method
-                  // showDialog(
-                  //   context: context,
-                  //   builder: (context) => MyAlertDialog(
-                  //     title: moveTitle,
-                  //     content: movedSuccessContent,
-                  //     onPressed: () {
-                  //       // Navigator.pushNamedAndRemoveUntil(
-                  //       //     context, MainView.id, (route) => false);
+                    // //TODO   here we will use currEngine in edit method
+                    // showDialog(
+                    //   context: context,
+                    //   builder: (context) => MyAlertDialog(
+                    //     title: moveTitle,
+                    //     content: movedSuccessContent,
+                    //     onPressed: () {
+                    //       // Navigator.pushNamedAndRemoveUntil(
+                    //       //     context, MainView.id, (route) => false);
 
-                        
-                  //     },
-                  //     btnName: "حسنا",
-                  //     onPressed2: () {},
-                  //     showbtn2: false,
-                  //   ),
-                  // );
-                },
-                onPressed2: () {
-                  Navigator.pop(context);
-                },
-                showbtn2: true,
-              ),
+                    //     },
+                    //     btnName: "حسنا",
+                    //     onPressed2: () {},
+                    //     showbtn2: false,
+                    //   ),
+                    // );
+                  },
+                  onPressed2: () {
+                    Navigator.pop(context);
+                  },
+                  showbtn2: true,
+                );
+              },
             );
 
             break;

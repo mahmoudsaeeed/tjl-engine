@@ -1,6 +1,5 @@
 import 'package:bloc_learn/cubits/DisplayEngineList/display_engine_list_cubit.dart';
 import 'package:bloc_learn/cubits/changeOperation/change_operation_cubit.dart';
-import 'package:bloc_learn/presentaion/views/main_view.dart';
 import 'package:bloc_learn/utils/widgets/AlertDialog/my_alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,8 +28,8 @@ class MyTimeLineTile extends StatelessWidget {
     return TimelineTile(
       axis: TimelineAxis.horizontal,
       alignment: TimelineAlign.start,
-      isFirst: isFirst,
-      isLast: isLast,
+      isFirst: isLast,
+      isLast: isFirst,
       hasIndicator: true,
       indicatorStyle: IndicatorStyle(
         drawGap: true,
@@ -67,7 +66,7 @@ class MyTimeLineTile extends StatelessWidget {
                 // });
               },
               onPressed2: () {
-                Navigator.popUntil(context, ModalRoute.withName(MainView.id));
+                Navigator.pop(context);
               },
               showbtn2: true,
             ),

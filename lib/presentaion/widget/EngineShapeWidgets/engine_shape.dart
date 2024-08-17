@@ -44,7 +44,10 @@ class EngineShape extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Directionality(child: DataPart(currEngine: currEngine, currPage: pageNumber,)),
+                  DataPart(
+                    currEngine: currEngine,
+                    currPage: pageNumber,
+                  ),
 
                   //** the next part is specific to department page */
 
@@ -108,14 +111,20 @@ class EngineShape extends StatelessWidget {
                                             box.getAt(indexBox)!);
                                     box.putAt(indexBox, engine);
                                     BlocProvider.of<EditEngineCubit>(context)
-                                        .moveTo(box.getAt(indexBox)!, refurbished);
+                                        .moveTo(
+                                            box.getAt(indexBox)!, refurbished);
 
                                     showDialog(
                                         context: context,
                                         builder: (context) {
+                                          MyAlertDialogText myTexts =
+                                              MyAlertDialogText(
+                                                  "نقل", currEngine.id);
+
                                           return MyAlertDialog(
-                                              title: moveTitle,
-                                              content: movedSuccessContent,
+                                              title: myTexts.operationTitle(),
+                                              content: myTexts
+                                                  .operationSuccessContent(),
                                               btnName: "الصفحة الرئيسية",
                                               onPressed: () {
                                                 Navigator
