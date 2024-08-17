@@ -1,7 +1,6 @@
 import 'package:bloc_learn/models/engine_model.dart';
-import 'package:bloc_learn/utils/constants.dart';
 import 'package:bloc_learn/utils/def.dart';
-import 'package:bloc_learn/utils/get_index_in_box.dart';
+import 'package:bloc_learn/utils/methods/get_index_in_box.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'edit_engine_state.dart';
@@ -17,11 +16,11 @@ class EditEngineCubit extends Cubit<EditEngineState> {
     box.putAt(boxIndex, newEngine);
   }
 
-  moveToDepart(EngineModel currEngine) {
+  moveTo(EngineModel currEngine , String pageName) {
     int boxIndex = getIndexInBox(currEngine);
 
     EngineModel newEngine =
-        EngineModel.editState(box.getAt(boxIndex)!, department);
+        EngineModel.editState(box.getAt(boxIndex)!, pageName);
 
     box.putAt(boxIndex, newEngine);
   }

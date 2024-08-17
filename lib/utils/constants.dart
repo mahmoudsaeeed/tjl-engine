@@ -19,6 +19,9 @@ const String testStage = "testStage";
 
 const String state = "state";
 
+const String agree = "yes";
+const String disagree = "no";
+
 const int lang = 1;
 
 const Map<String, List<String>> langDef = {
@@ -34,16 +37,27 @@ const Map<String, List<String>> langDef = {
   cylinderStage: ["", "وش سلندر"],
   sprayStage: ["", "رشاشات"],
   testStage: ["", "اختبار"],
-
-  state : ["State" , "الحالة"],
+  state: ["State", "الحالة"],
+  agree: ["Yes", "نعم"],
+  disagree: ["No", "لا"],
 };
 
+final List<String> operationsName = [
+  langDef[washStage]![lang],
+  langDef[crankStage]![lang],
+  langDef[collectStage]![lang],
+  langDef[cylinderStage]![lang],
+  langDef[sprayStage]![lang],
+  langDef[testStage]![lang],
+];
 
- final List<String> operationsName = [
-      langDef[washStage]![lang],
-      langDef[crankStage]![lang],
-      langDef[collectStage]![lang],
-      langDef[cylinderStage]![lang],
-      langDef[sprayStage]![lang],
-      langDef[testStage]![lang],
-    ];
+const String moveTitle = "تأكيد عملية النقل";
+
+String moveContent(int id) {
+  return "هل تريد نقل المحرك $id ؟ ";
+}
+
+const String movedSuccessContent =
+    "تمت عملية نقل المحرك بنجاح  يرجي الانتقال للصفحة الرئيسية";
+
+const String backToMain = "يرجي الانتقال للصفحة الرئيسية";

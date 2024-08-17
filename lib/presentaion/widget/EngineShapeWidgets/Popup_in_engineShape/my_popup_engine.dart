@@ -5,7 +5,8 @@ import 'package:bloc_learn/models/engine_model.dart';
 import 'package:bloc_learn/presentaion/views/Screens/engine_detail.dart';
 // import 'package:bloc_learn/presentaion/views/Screens/engine_detail.dart';
 import 'package:bloc_learn/presentaion/views/main_view.dart';
-import 'package:bloc_learn/utils/widgets/my_alert_dialog.dart';
+import 'package:bloc_learn/utils/constants.dart';
+import 'package:bloc_learn/utils/widgets/AlertDialog/my_alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,21 +42,19 @@ class _MyPopupEngineState extends State<MyPopupEngine> {
             showDialog(
               context: context,
               builder: (context) => MyAlertDialog(
-                title: "تأكيد عملية النقل",
-                content: "هل تريد نقل المحرك ${widget.currEngine.id} ؟ ",
-                btnName: "نعم",
+                title: moveTitle,
+                content: moveContent(widget.currEngine.id),
                 onPressed: () {
                   BlocProvider.of<EditEngineCubit>(context)
-                      .moveToDepart(widget.currEngine);
+                      .moveTo(widget.currEngine , department);
                   //* move to part
 
                   //TODO   here we will use currEngine in edit method
                   showDialog(
                     context: context,
                     builder: (context) => MyAlertDialog(
-                      title: "تم النقل بنجاح",
-                      content:
-                          "تمت عملية نقل المحرك بنجاح داخل القسم يرجي الانتقال للصفحة الرئيسية",
+                      title: moveTitle,
+                      content: movedSuccessContent,
                       onPressed: () {
                         Navigator.pushNamedAndRemoveUntil(
                             context, MainView.id, (route) => false);
@@ -66,7 +65,6 @@ class _MyPopupEngineState extends State<MyPopupEngine> {
                     ),
                   );
                 },
-                btnName2: "لا",
                 onPressed2: () {
                   Navigator.pop(context);
                 },

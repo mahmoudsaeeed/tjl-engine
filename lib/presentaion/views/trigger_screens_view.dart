@@ -56,6 +56,8 @@ class _TriggerScreensViewState extends State<TriggerScreensView>
         ),
       ),
       body: TabBarView(
+        physics: const NeverScrollableScrollPhysics(),
+        
         controller: _tabController,
         children: const [
           AllScreen(),

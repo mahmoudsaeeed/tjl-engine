@@ -1,7 +1,7 @@
 import 'package:bloc_learn/cubits/DisplayEngineList/display_engine_list_cubit.dart';
 import 'package:bloc_learn/cubits/changeOperation/change_operation_cubit.dart';
 import 'package:bloc_learn/presentaion/views/main_view.dart';
-import 'package:bloc_learn/utils/widgets/my_alert_dialog.dart';
+import 'package:bloc_learn/utils/widgets/AlertDialog/my_alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:timeline_tile/timeline_tile.dart';
