@@ -24,7 +24,7 @@ class _RefScreenState extends State<RefScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<DisplayEngineListCubit, List<EngineModel>>(
       builder: (context, currList) {
-        return EngineListView(currList: currList, pageName: refurbished,);
+        return EngineListView(currList: currList, pageNumber: pageIndexIn[refurbished]!,);
 
         // return EngineListView(currList:);
       },

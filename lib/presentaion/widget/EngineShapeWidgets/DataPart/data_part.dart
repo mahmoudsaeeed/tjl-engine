@@ -6,17 +6,17 @@ import 'package:flutter/material.dart';
 class DataPart extends StatelessWidget {
   const DataPart({
     super.key,
-    required this.currEngine,
+    required this.currEngine, required this.currPage,
   });
   final EngineModel currEngine;
+  final int currPage;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         RightDataEngine(currEngine: currEngine),
-
-        MyPopupEngine(currEngine: currEngine)
+        MyPopupEngine(currEngine: currEngine, currPage: currPage,)
       ],
     );
   }

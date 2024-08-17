@@ -26,7 +26,8 @@ class _DepartViewState extends State<DepartView> {
       body: BlocBuilder<DisplayEngineListCubit, List<EngineModel>>(
         builder: (context, currList) {
           return EngineListView(
-            currList: currList, pageName: department,
+            //*  3 depart
+            currList: currList, pageNumber: pageIndexIn[department]!,
           );
         },
       ),

@@ -27,7 +27,7 @@ class _AllScreenState extends State<AllScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<DisplayEngineListCubit, List<EngineModel>>(
       builder: (context, currList) {
-        return EngineListView(currList: currList, pageName: all,);
+        return EngineListView(currList: currList, pageNumber: pageIndexIn[all]!,);
 
         // return EngineListView(currList:);
       },

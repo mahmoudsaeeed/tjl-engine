@@ -24,7 +24,7 @@ class _NonRefScreenState extends State<NonRefScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<DisplayEngineListCubit, List<EngineModel>>(
       builder: (context, currList) {
-        return EngineListView(currList: currList, pageName: nonRefurbished,);
+        return EngineListView(currList: currList, pageNumber: pageIndexIn[nonRefurbished]!,);
       },
     );
   }

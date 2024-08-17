@@ -61,3 +61,10 @@ const String movedSuccessContent =
     "تمت عملية نقل المحرك بنجاح  يرجي الانتقال للصفحة الرئيسية";
 
 const String backToMain = "يرجي الانتقال للصفحة الرئيسية";
+
+Map<String, int> pageIndexIn = {
+  all : 0,
+  nonRefurbished : 1 ,
+  refurbished : 2 , 
+  department : 3
+};

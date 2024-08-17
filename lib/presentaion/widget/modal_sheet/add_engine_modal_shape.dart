@@ -1,5 +1,5 @@
 import 'package:bloc_learn/cubits/AddEngine/add_engine_cubit.dart';
-import 'package:bloc_learn/presentaion/views/main_view.dart';
+import 'package:bloc_learn/cubits/DisplayEngineList/display_engine_list_cubit.dart';
 import 'package:bloc_learn/presentaion/widget/modal_sheet/my_drop_down_state.dart';
 import 'package:bloc_learn/utils/constants.dart';
 import 'package:bloc_learn/utils/controllers.dart';
@@ -17,7 +17,7 @@ class EngineModalShape extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey,
+      color: Color.fromARGB(255, 3, 25, 26),
       padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom,
           left: 20,
@@ -51,8 +51,12 @@ class EngineModalShape extends StatelessWidget {
                               content: "يرجي الرجوع للصفحة الرئيسية ",
                               btnName: "الرجوع للصفحة الرئيسية",
                               onPressed: () {
-                                Navigator.pushNamedAndRemoveUntil(
-                                    context, MainView.id, (route) => false);
+                                // Navigator.pushNamedAndRemoveUntil(
+                                //     context, MainView.id, (route) => false);
+                                BlocProvider.of<DisplayEngineListCubit>(context)
+                                    .fetchAllData(0);  //TODO 
+                                //TODO fetchAllDate is referch current page but i don't have currPagèe index
+                                Navigator.pop(context);
                               },
                               onPressed2: () {},
                               showbtn2: false,

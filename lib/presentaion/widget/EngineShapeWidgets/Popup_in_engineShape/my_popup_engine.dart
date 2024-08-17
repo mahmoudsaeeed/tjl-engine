@@ -1,24 +1,22 @@
 // import 'package:bloc_learn/cubits/DisplayEngineDetail/display_engine_detail_cubit.dart';
 // import 'package:bloc_learn/cubits/DisplayEngineDetail/display_engine_detail_cubit.dart';
+import 'package:bloc_learn/cubits/DisplayEngineList/display_engine_list_cubit.dart';
 import 'package:bloc_learn/cubits/EditEngine/edit_engine_cubit.dart';
 import 'package:bloc_learn/models/engine_model.dart';
 import 'package:bloc_learn/presentaion/views/Screens/engine_detail.dart';
 // import 'package:bloc_learn/presentaion/views/Screens/engine_detail.dart';
-import 'package:bloc_learn/presentaion/views/main_view.dart';
 import 'package:bloc_learn/utils/constants.dart';
 import 'package:bloc_learn/utils/widgets/AlertDialog/my_alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MyPopupEngine extends StatefulWidget {
-  const MyPopupEngine({super.key, required this.currEngine});
+class MyPopupEngine extends StatelessWidget {
+  const MyPopupEngine(
+      {super.key, required this.currEngine, required this.currPage});
   final EngineModel currEngine;
 
-  @override
-  State<MyPopupEngine> createState() => _MyPopupEngineState();
-}
+  final int currPage;
 
-class _MyPopupEngineState extends State<MyPopupEngine> {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton<int>(onSelected: (value) {
@@ -33,7 +31,7 @@ class _MyPopupEngineState extends State<MyPopupEngine> {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        EngineDetail(currEngine: widget.currEngine)));
+                        EngineDetail(currEngine: currEngine)));
             break;
           }
 
@@ -43,27 +41,33 @@ class _MyPopupEngineState extends State<MyPopupEngine> {
               context: context,
               builder: (context) => MyAlertDialog(
                 title: moveTitle,
-                content: moveContent(widget.currEngine.id),
+                content: moveContent(currEngine.id),
                 onPressed: () {
                   BlocProvider.of<EditEngineCubit>(context)
-                      .moveTo(widget.currEngine , department);
+                      .moveTo(currEngine, department);
                   //* move to part
 
-                  //TODO   here we will use currEngine in edit method
-                  showDialog(
-                    context: context,
-                    builder: (context) => MyAlertDialog(
-                      title: moveTitle,
-                      content: movedSuccessContent,
-                      onPressed: () {
-                        Navigator.pushNamedAndRemoveUntil(
-                            context, MainView.id, (route) => false);
-                      },
-                      btnName: "حسنا",
-                      onPressed2: () {},
-                      showbtn2: false,
-                    ),
-                  );
+                  BlocProvider.of<DisplayEngineListCubit>(context)
+                            .fetchAllData(currPage);
+                        Navigator.pop(context);
+
+                  // //TODO   here we will use currEngine in edit method
+                  // showDialog(
+                  //   context: context,
+                  //   builder: (context) => MyAlertDialog(
+                  //     title: moveTitle,
+                  //     content: movedSuccessContent,
+                  //     onPressed: () {
+                  //       // Navigator.pushNamedAndRemoveUntil(
+                  //       //     context, MainView.id, (route) => false);
+
+                        
+                  //     },
+                  //     btnName: "حسنا",
+                  //     onPressed2: () {},
+                  //     showbtn2: false,
+                  //   ),
+                  // );
                 },
                 onPressed2: () {
                   Navigator.pop(context);

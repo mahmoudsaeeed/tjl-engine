@@ -19,12 +19,12 @@ class EngineShape extends StatelessWidget {
     super.key,
     required this.currEngine,
     required this.index,
-    required this.pageName,
+    required this.pageNumber,
   });
 
   final EngineModel currEngine;
   final int index;
-  final String pageName;
+  final int pageNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -44,11 +44,11 @@ class EngineShape extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Directionality(child: DataPart(currEngine: currEngine)),
+                  Directionality(child: DataPart(currEngine: currEngine, currPage: pageNumber,)),
 
                   //** the next part is specific to department page */
 
-                  pageName == department
+                  pageNumber == 3
                       ? Column(
                           children: [
                             const Gap(20),
