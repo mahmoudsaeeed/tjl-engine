@@ -49,6 +49,24 @@ class MainView extends StatelessWidget {
                 color: Theme.of(context).appBarTheme.backgroundColor,
                 borderRadius:
                     const BorderRadius.vertical(bottom: Radius.circular(30))),
+            alignment: Alignment.center,
+            child: const Text(
+              "TJL APP",
+              style: TextStyle(
+                fontSize: 26,
+                fontWeight: FontWeight.w800,
+                shadows: [
+                  Shadow(color: Colors.white, offset: Offset(1, 1),
+),
+                  Shadow(
+                      color: Color.fromARGB(255, 185, 146, 110),
+                      offset: Offset(3, 1)),
+                  Shadow(
+                      color: Color.fromARGB(255, 185, 146, 110),
+                      offset: Offset(-3, 1)),
+                ],
+              ),
+            ),
           ),
         ],
       ),

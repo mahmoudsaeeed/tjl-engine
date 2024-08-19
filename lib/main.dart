@@ -86,6 +86,7 @@ ThemeData lightTheme = ThemeData(
     //* texts within MainView Page
     headlineLarge: TextStyle(
       fontWeight: FontWeight.bold,
+      fontSize: 22,
       color: Colors.white,
       fontFamily: "Cairo",
     ),
