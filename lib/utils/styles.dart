@@ -1,30 +1,45 @@
 import 'package:flutter/material.dart';
 
-BoxDecoration engineStyle = BoxDecoration(
-  borderRadius:
-      BorderRadius.horizontal(left: Radius.circular(20), right: Radius.zero),
-  color: Colors.blueGrey,
-);
+BoxDecoration engineStyle(context) => BoxDecoration(
+      borderRadius: BorderRadius.horizontal(
+          left: Radius.circular(20), right: Radius.zero),
+      color: Theme.of(context).primaryColorDark,
+    );
 
-BoxDecoration mainStyle(Color color) {
-  return BoxDecoration(
-    borderRadius: BorderRadius.circular(20),
-    color: color,
-  );
-}
+BoxDecoration departments(context) => BoxDecoration(
+      borderRadius: BorderRadius.circular(20),
+      color: Theme.of(context).primaryColorDark,
+      // boxShadow: const [
+      //   // BoxShadow(
+      //   //   color: Color.fromARGB(185, 255, 255, 255),
+      //   //   blurRadius: 12,
+      //   //   // spreadRadius: .0,
+      //   // )
+      // ],
+    );
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-InputDecoration textFormFieldStyle(label) => InputDecoration(
-    border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10), gapPadding: 4),
-    filled: true,
-    fillColor: Color.fromARGB(255, 56, 55, 54),
-    contentPadding: const EdgeInsets.all(10),
-    isDense: true,
-    hintText: label);
+InputDecoration textFormFieldStyle(label , readOnly) => InputDecoration(
+
+      border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10), gapPadding: 4),
+      filled: true,
+      fillColor: readOnly?Color.fromARGB(255, 119, 118, 116) : Colors.white,
+      contentPadding: const EdgeInsets.all(10),
+      isDense: true,
+      hintText: label,
+      
+    );
 
 RelativeRect rect = RelativeRect.fromSize(recta, Size.infinite);
 
 Rect recta = Rect.fromLTRB(80, 60, 60, 60);
+
+/////////////////////////////////////////////////////////////////
+
+TextStyle namesOfPages(bool isSelected) => TextStyle(
+      fontSize: 20,
+      color: isSelected ? Colors.white : Colors.white60,
+    );

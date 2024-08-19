@@ -21,98 +21,113 @@ class MyPopupEngine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PopupMenuButton<int>(onSelected: (value) {
-      switch (value) {
-        case 0:
-          {
-            // BlocProvider.of<DisplayEngineDetailCubit>(context)
-            //     .engineDetail(widget.currEngine);
+    return PopupMenuButton<int>(
+        iconColor: Colors.white,
+        offset: const Offset(28, 15),
+        // splashRadius: 50,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+          topRight: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+          bottomLeft: Radius.circular(20),
+        )),
 
-            // Navigator.pushNamed(context, EngineDetail.id);
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        EngineDetail(currEngine: currEngine, currPage: currPage,)));
-            break;
-          }
+        
+        onSelected: (value) {
+          switch (value) {
+            case 0:
+              {
+                // BlocProvider.of<DisplayEngineDetailCubit>(context)
+                //     .engineDetail(widget.currEngine);
 
-        case 1:
-          {
-            showDialog(
-              context: context,
-              builder: (context) {
-                MyAlertDialogText myText =
-                    MyAlertDialogText("نقل", currEngine.id);
-                return MyAlertDialog(
-                  title: myText.operationTitle(),
-                  content: myText.operationConfirmContent(),
-                  onPressed: () {
-                    BlocProvider.of<EditEngineCubit>(context)
-                        .moveTo(currEngine, department);
-                    //* move to part
+                // Navigator.pushNamed(context, EngineDetail.id);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => EngineDetail(
+                              currEngine: currEngine,
+                              currPage: currPage,
+                            )));
+                break;
+              }
 
-                    BlocProvider.of<DisplayEngineListCubit>(context)
-                        .fetchAllData(currPage);
-                    Navigator.pop(context);
+            case 1:
+              {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    MyAlertDialogText myText =
+                        MyAlertDialogText("نقل", currEngine.id);
+                    return MyAlertDialog(
+                      title: myText.operationTitle(),
+                      content: myText.operationConfirmContent(),
+                      onPressed: () {
+                        BlocProvider.of<EditEngineCubit>(context)
+                            .moveTo(currEngine, department);
+                        //* move to part
 
-                    // //TODO   here we will use currEngine in edit method
-                    // showDialog(
-                    //   context: context,
-                    //   builder: (context) => MyAlertDialog(
-                    //     title: moveTitle,
-                    //     content: movedSuccessContent,
-                    //     onPressed: () {
-                    //       // Navigator.pushNamedAndRemoveUntil(
-                    //       //     context, MainView.id, (route) => false);
+                        BlocProvider.of<DisplayEngineListCubit>(context)
+                            .fetchAllData(currPage);
+                        Navigator.pop(context);
 
-                    //     },
-                    //     btnName: "حسنا",
-                    //     onPressed2: () {},
-                    //     showbtn2: false,
-                    //   ),
-                    // );
+                        // //TODO   here we will use currEngine in edit method
+                        // showDialog(
+                        //   context: context,
+                        //   builder: (context) => MyAlertDialog(
+                        //     title: moveTitle,
+                        //     content: movedSuccessContent,
+                        //     onPressed: () {
+                        //       // Navigator.pushNamedAndRemoveUntil(
+                        //       //     context, MainView.id, (route) => false);
+
+                        //     },
+                        //     btnName: "حسنا",
+                        //     onPressed2: () {},
+                        //     showbtn2: false,
+                        //   ),
+                        // );
+                      },
+                      onPressed2: () {
+                        Navigator.pop(context);
+                      },
+                      showbtn2: true,
+                    );
                   },
-                  onPressed2: () {
-                    Navigator.pop(context);
-                  },
-                  showbtn2: true,
                 );
-              },
-            );
 
-            break;
-          }
-        case 2:
-          {
-            setInitialData(currEngine);
+                break;
+              }
+            case 2:
+              {
+                setInitialData(currEngine);
 
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ModifyEngine(
-                  currEngine: currEngine,
-                  currPage: currPage,
-                ),
-              ),
-            );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ModifyEngine(
+                      currEngine: currEngine,
+                      currPage: currPage,
+                    ),
+                  ),
+                );
+              }
           }
-      }
-    }, itemBuilder: (context) {
-      return const [
-        PopupMenuItem(
-          value: 0,
-          child: Text("عرض البيانات"),
-        ),
-        PopupMenuItem(
-          value: 1,
-          child: Text("نقل إلي القسم"),
-        ),
-        PopupMenuItem(
-          value: 2,
-          child: Text("تعديل المحرك"),
-        ),
-      ];
-    });
+        },
+        itemBuilder: (context) {
+          return const [
+            PopupMenuItem(
+              value: 0,
+              child: Text("عرض البيانات"),
+            ),
+            PopupMenuItem(
+              value: 1,
+              child: Text("نقل إلي القسم"),
+            ),
+            PopupMenuItem(
+              value: 2,
+              child: Text("تعديل المحرك"),
+            ),
+          ];
+        });
   }
 }

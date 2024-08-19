@@ -19,7 +19,7 @@ class CustomTextFormField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         readOnly: readOnly,
-        decoration: textFormFieldStyle(hintText),      ),
+        decoration: textFormFieldStyle(hintText , readOnly),      ),
     );
   }
 }

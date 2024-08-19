@@ -28,11 +28,18 @@ class _MyDataRowInModifyEngineState extends State<MyDataRowInModifyEngine> {
   Widget build(BuildContext context) {
     return Row(
       children: [
+
+        //* title 
         Container(
             // alignment: Alignment.center,
             padding: EdgeInsets.only(right: 10),
             width: 100,
-            child: Text(fieldsName[widget.indexField])),
+            child: Text(
+              fieldsName[widget.indexField],
+              style: Theme.of(context).textTheme.titleMedium,
+            )),
+
+        //* data
         Expanded(
           child: CustomTextFormField(
             readOnly: readOnly,

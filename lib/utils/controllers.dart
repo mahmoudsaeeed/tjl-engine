@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 //* controllers of [ add ]  engine MODAL
 final TextEditingController idController = TextEditingController();
+final TextEditingController unitController = TextEditingController();
 final TextEditingController stateController = TextEditingController();
 final TextEditingController logDateController = TextEditingController();
 
@@ -9,6 +10,7 @@ final TextEditingController logDateController = TextEditingController();
 
 final TextEditingController idEditController = TextEditingController();
 final TextEditingController stateEditController = TextEditingController();
+final TextEditingController unitEditController = TextEditingController();
 final TextEditingController logDateEditController = TextEditingController();
 final TextEditingController logOutDateEditController = TextEditingController();
 final TextEditingController washEditController = TextEditingController();

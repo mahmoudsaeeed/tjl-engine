@@ -3,6 +3,7 @@ import 'package:bloc_learn/presentaion/views/Screens/HomeScreen/all_screen.dart'
 import 'package:bloc_learn/presentaion/views/Screens/HomeScreen/non_ref_screen.dart';
 import 'package:bloc_learn/presentaion/views/Screens/HomeScreen/ref_screen.dart';
 import 'package:bloc_learn/utils/constants.dart';
+import 'package:bloc_learn/utils/styles.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -49,15 +50,21 @@ class _TriggerScreensViewState extends State<TriggerScreensView>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+
+        // backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        foregroundColor: Colors.white,
+        toolbarHeight: 50,
         bottom: TabBar(
           tabs: _tabs,
           controller: _tabController,
+          labelStyle: namesOfPages(true),
+          unselectedLabelStyle: namesOfPages(false),
+          indicatorColor: Colors.white,
+          indicatorWeight: 6,
         ),
       ),
       body: TabBarView(
         physics: const NeverScrollableScrollPhysics(),
-        
         controller: _tabController,
         children: const [
           AllScreen(),
@@ -80,9 +87,3 @@ List<Widget> _tabs = [
     text: langDef[refurbished]![lang],
   ),
 ];
-
-// List<Widget> _screens = const [
-//   AllScreen(),
-//   RefScreen(),
-//   NonRefScreen(),
-// ];

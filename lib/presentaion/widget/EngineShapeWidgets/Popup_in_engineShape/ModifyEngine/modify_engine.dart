@@ -16,90 +16,93 @@ class ModifyEngine extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(),
         body: SingleChildScrollView(
-          child: Container(
-            // width: MediaQuery.of(context).size.width,
-            // height: MediaQuery.of(context).size.height,
-            child: Column(
-              children: [
-                //* id
-                MyDataRowInModifyEngine(
-                  indexField: 0,
-                  currPage: currPage,
-                  engineIndexInBox: engineIndexInBox,
-                  
-                  // initValue: "${currEngine.id}",
-                  
-                ),
-                //* state
-                MyDataRowInModifyEngine(
-                  indexField: 1,
-                  currPage: currPage,
-                  engineIndexInBox: engineIndexInBox,
-                  // initValue: currEngine.state,
-                ),
-                //* logDate
-                MyDataRowInModifyEngine(
-                  indexField: 2,
-                  currPage: currPage,
-                  engineIndexInBox: engineIndexInBox,
-                  // initValue: currEngine.logDate,
-                ),
-                //* logOutDate
-                MyDataRowInModifyEngine(
-                  indexField: 3,
-                  currPage: currPage,
-                  engineIndexInBox: engineIndexInBox,
-                  // initValue: currEngine.logOutDate,
-                ),
+          child: Column(
+            children: [
+              //* id
+              MyDataRowInModifyEngine(
+                indexField: 0,
+                currPage: currPage,
+                engineIndexInBox: engineIndexInBox,
                 
-                //* washStage
-                MyDataRowInModifyEngine(
-                  indexField: 4,
-                  currPage: currPage,
-                  engineIndexInBox: engineIndexInBox,
-                  // initValue: currEngine.washDate,
-                ),
+                // initValue: "${currEngine.id}",
                 
-                //* crankStage
-                MyDataRowInModifyEngine(
-                  indexField: 5,
-                  currPage: currPage,
-                  engineIndexInBox: engineIndexInBox,
-                  // initValue: currEngine.crankDate,
-                ),
-                //* collectStage
-                MyDataRowInModifyEngine(
-                  indexField: 6,
-                  currPage: currPage,
-                  engineIndexInBox: engineIndexInBox,
-                  // initValue: currEngine.collectDate,
-                ),
-                
-                //* CylinderStage
-                MyDataRowInModifyEngine(
-                  indexField: 7,
-                  currPage: currPage,
-                  engineIndexInBox: engineIndexInBox,
-                  // initValue: currEngine.cylinderDate,
-                ),
-                
-                //* sprayStage
-                MyDataRowInModifyEngine(
-                  indexField: 8,
-                  currPage: currPage,
-                  engineIndexInBox: engineIndexInBox,
-                  // initValue: sprayStage,
-                ),
-                
-                //* testStage
-                MyDataRowInModifyEngine(
-                  indexField: 9,
-                  currPage: currPage,
-                  engineIndexInBox: engineIndexInBox,
-                  // initValue: currEngine.testDate,
-                ),
-              ],
-            ),
+              ),
+              //* state
+              MyDataRowInModifyEngine(
+                indexField: 1,
+                currPage: currPage,
+                engineIndexInBox: engineIndexInBox,
+                // initValue: currEngine.state,
+              ),
+              //* unit
+              MyDataRowInModifyEngine(
+                indexField: 10,
+                currPage: currPage,
+                engineIndexInBox: engineIndexInBox,
+                // initValue: currEngine.state,
+              ),
+              //* logDate
+              MyDataRowInModifyEngine(
+                indexField: 2,
+                currPage: currPage,
+                engineIndexInBox: engineIndexInBox,
+                // initValue: currEngine.logDate,
+              ),
+              //* logOutDate
+              MyDataRowInModifyEngine(
+                indexField: 3,
+                currPage: currPage,
+                engineIndexInBox: engineIndexInBox,
+                // initValue: currEngine.logOutDate,
+              ),
+              
+              //* washStage
+              MyDataRowInModifyEngine(
+                indexField: 4,
+                currPage: currPage,
+                engineIndexInBox: engineIndexInBox,
+                // initValue: currEngine.washDate,
+              ),
+              
+              //* crankStage
+              MyDataRowInModifyEngine(
+                indexField: 5,
+                currPage: currPage,
+                engineIndexInBox: engineIndexInBox,
+                // initValue: currEngine.crankDate,
+              ),
+              //* collectStage
+              MyDataRowInModifyEngine(
+                indexField: 6,
+                currPage: currPage,
+                engineIndexInBox: engineIndexInBox,
+                // initValue: currEngine.collectDate,
+              ),
+              
+              //* CylinderStage
+              MyDataRowInModifyEngine(
+                indexField: 7,
+                currPage: currPage,
+                engineIndexInBox: engineIndexInBox,
+                // initValue: currEngine.cylinderDate,
+              ),
+              
+              //* sprayStage
+              MyDataRowInModifyEngine(
+                indexField: 8,
+                currPage: currPage,
+                engineIndexInBox: engineIndexInBox,
+                // initValue: sprayStage,
+              ),
+              
+              //* testStage
+              MyDataRowInModifyEngine(
+                indexField: 9,
+                currPage: currPage,
+                engineIndexInBox: engineIndexInBox,
+                // initValue: currEngine.testDate,
+              ),
+            ],
           ),
         ),
       ),

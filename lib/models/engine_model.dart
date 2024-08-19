@@ -5,6 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 class EngineModel extends HiveObject {
   final int id;
   final String state;
+  final String unit;
   final String logDate;
   final String logOutDate;
 
@@ -25,6 +26,7 @@ class EngineModel extends HiveObject {
   EngineModel({
     required this.id,
     required this.state,
+    required this.unit,
     required this.logDate,
     this.logOutDate = "",
     this.washDate = "",
@@ -51,6 +53,7 @@ class EngineModel extends HiveObject {
           return EngineModel(
             id: int.parse(idEditController.value.text),
             state: engine.state,
+            unit: engine.state,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
@@ -68,12 +71,13 @@ class EngineModel extends HiveObject {
           );
         }
 
-        //* state
+      //* state
       case 1:
         {
           return EngineModel(
             id: engine.id,
             state: stateEditController.value.text,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
@@ -90,13 +94,14 @@ class EngineModel extends HiveObject {
             testStage: engine.testStage,
           );
         }
-        
-        //* logDate
+
+      //* logDate
       case 2:
         {
           return EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: logDateEditController.value.text,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
@@ -113,13 +118,14 @@ class EngineModel extends HiveObject {
             testStage: engine.testStage,
           );
         }
-      
+
       //* logOutDate
       case 3:
         {
           return EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: logOutDateEditController.value.text,
             washDate: engine.washDate,
@@ -136,13 +142,14 @@ class EngineModel extends HiveObject {
             testStage: engine.testStage,
           );
         }
-      
+
       //* wash
       case 4:
         {
           return EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: washEditController.value.text,
@@ -151,7 +158,8 @@ class EngineModel extends HiveObject {
             cylinderDate: engine.cylinderDate,
             sprayDate: engine.sprayDate,
             testDate: engine.testDate,
-            washStage: washEditController.value.text=="" ? false : engine.washStage,
+            washStage:
+                washEditController.value.text == "" ? false : engine.washStage,
             crankStage: engine.crankStage,
             collectStage: engine.collectStage,
             cylinderStage: engine.cylinderStage,
@@ -159,13 +167,14 @@ class EngineModel extends HiveObject {
             testStage: engine.testStage,
           );
         }
-      
+
       //* crank
       case 5:
         {
           return EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
@@ -175,20 +184,23 @@ class EngineModel extends HiveObject {
             sprayDate: engine.sprayDate,
             testDate: engine.testDate,
             washStage: engine.washStage,
-            crankStage: crankEditController.value.text==""? false :  engine.crankStage,
+            crankStage: crankEditController.value.text == ""
+                ? false
+                : engine.crankStage,
             collectStage: engine.collectStage,
             cylinderStage: engine.cylinderStage,
             sprayStage: engine.sprayStage,
             testStage: engine.testStage,
           );
         }
-      
+
       //* collect
       case 6:
         {
           return EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
@@ -199,19 +211,22 @@ class EngineModel extends HiveObject {
             testDate: engine.testDate,
             washStage: engine.washStage,
             crankStage: engine.crankStage,
-            collectStage: collectEditController.value.text ==""? false : engine.collectStage,
+            collectStage: collectEditController.value.text == ""
+                ? false
+                : engine.collectStage,
             cylinderStage: engine.cylinderStage,
             sprayStage: engine.sprayStage,
             testStage: engine.testStage,
           );
         }
-      
+
       //* cylinder
       case 7:
         {
           return EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
@@ -223,18 +238,21 @@ class EngineModel extends HiveObject {
             washStage: engine.washStage,
             crankStage: engine.crankStage,
             collectStage: engine.collectStage,
-            cylinderStage:cylinderEditController.value.text=="" ? false : engine.cylinderStage,
+            cylinderStage: cylinderEditController.value.text == ""
+                ? false
+                : engine.cylinderStage,
             sprayStage: engine.sprayStage,
             testStage: engine.testStage,
           );
         }
-      
+
       //* spray
       case 8:
         {
           return EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
@@ -247,17 +265,20 @@ class EngineModel extends HiveObject {
             crankStage: engine.crankStage,
             collectStage: engine.collectStage,
             cylinderStage: engine.cylinderStage,
-            sprayStage: sprayEditController.value.text == "" ? false : engine.sprayStage,
+            sprayStage: sprayEditController.value.text == ""
+                ? false
+                : engine.sprayStage,
             testStage: engine.testStage,
           );
         }
-      
+
       //* test
       case 9:
         {
           return EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
@@ -271,7 +292,32 @@ class EngineModel extends HiveObject {
             collectStage: engine.collectStage,
             cylinderStage: engine.cylinderStage,
             sprayStage: engine.sprayStage,
-            testStage: testEditController.value.text=="" ? false : engine.testStage,
+            testStage:
+                testEditController.value.text == "" ? false : engine.testStage,
+          );
+        }
+
+      //* unit
+      case 10:
+        {
+          return EngineModel(
+            id: engine.id,
+            state: engine.state,
+            unit: unitEditController.value.text,
+            logDate: engine.logDate,
+            logOutDate: engine.logOutDate,
+            washDate: engine.washDate,
+            crankDate: engine.crankDate,
+            collectDate: engine.collectDate,
+            cylinderDate: engine.cylinderDate,
+            sprayDate: engine.sprayDate,
+            testDate: engine.testDate,
+            washStage: engine.washStage,
+            crankStage: engine.crankStage,
+            collectStage: engine.collectStage,
+            cylinderStage: engine.cylinderStage,
+            sprayStage: engine.sprayStage,
+            testStage:engine.testStage,
           );
         }
     }
@@ -283,6 +329,7 @@ class EngineModel extends HiveObject {
     return EngineModel(
       id: engine.id,
       state: engine.state,
+      unit: engine.unit,
       logDate: engine.logDate,
       logOutDate: myDateTime,
       washDate: engine.washDate,
@@ -304,6 +351,7 @@ class EngineModel extends HiveObject {
     return EngineModel(
       id: engine.id,
       state: state,
+      unit: engine.unit,
       logDate: engine.logDate,
       logOutDate: engine.logOutDate,
       washDate: engine.washDate,
@@ -330,6 +378,7 @@ class EngineModel extends HiveObject {
           return EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: state ? myDateTime : "",
@@ -352,6 +401,7 @@ class EngineModel extends HiveObject {
           return EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
@@ -374,6 +424,7 @@ class EngineModel extends HiveObject {
           return EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
@@ -396,6 +447,7 @@ class EngineModel extends HiveObject {
           return EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
@@ -418,6 +470,7 @@ class EngineModel extends HiveObject {
           return EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
@@ -440,6 +493,7 @@ class EngineModel extends HiveObject {
           return EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,

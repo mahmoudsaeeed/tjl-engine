@@ -9,9 +9,17 @@ class MyDataRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(width: 80, child: Text(data)),
+        SizedBox(
+            width: 80,
+            child: Text(
+              data,
+              style: Theme.of(context).textTheme.titleMedium,
+            )),
         const Gap(10),
-        Text(value),
+        Text(
+          value,
+          style: Theme.of(context).textTheme.displayMedium,
+        ),
       ],
     );
   }

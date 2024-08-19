@@ -43,14 +43,71 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => DisplayEngineDetailCubit(),
         ),
-
-        BlocProvider(create: (context)=>ChangeOperationCubit()),
+        BlocProvider(create: (context) => ChangeOperationCubit()),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         routes: myRoutes,
-        theme: ThemeData.dark(),
+        theme: lightTheme,
         home: const MainView(),
       ),
     );
   }
 }
+
+ThemeData lightTheme = ThemeData(
+  useMaterial3: true,
+
+////////////////////////////////////////////////////////
+  ///! Colors
+  scaffoldBackgroundColor: const Color(0xff222831),
+
+  appBarTheme: const AppBarTheme(color: Color(0xff00ADB5)),
+  //* background of background
+  primaryColor: const  Color(0xff393E46),
+
+//*  background of containers
+  primaryColorDark: const Color(0xff222831),
+
+  // dialogTheme: ,
+  // dialogBackgroundColor: ,
+
+  // buttonTheme: ButtonThemeData(
+  //   padding: EdgeInsets.symmetric(horizontal: 20),
+
+  // ) ,
+
+/////////////////////////////////////////////////
+  ///! Fonts
+  textTheme: const TextTheme(
+    //* texts within MainView Page
+    headlineLarge: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+
+    //* Titles of AlertDialog
+    titleLarge: TextStyle(
+      fontSize: 20,
+      color: Colors.white,
+      fontWeight: FontWeight.bold,
+    ),
+
+    //* EngineTitels
+    titleMedium: TextStyle(
+      fontSize: 14,
+      color: Colors.white,
+      fontWeight: FontWeight.bold,
+    ),
+
+    //* OperationName
+    titleSmall: TextStyle(
+      fontSize: 12,
+    ),
+
+    //* engineData
+    displayMedium: TextStyle(
+      fontSize: 14,
+      color: Colors.white70,
+    ),
+  ),
+
+  // primaryColor: Colors.red,
+);

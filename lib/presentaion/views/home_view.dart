@@ -14,10 +14,7 @@ class HomeView extends StatelessWidget {
           indexPage: 0,
         ), //TODO  we want to provide currPage provider
         floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-        body: Container(
-          color: Colors.black45,
-          child: const TriggerScreensView(),
-        ),
+        body: const TriggerScreensView(),
       ),
     );
   }

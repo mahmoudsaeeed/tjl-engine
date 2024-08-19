@@ -31,6 +31,11 @@ class EngineModalShape extends StatelessWidget {
               hintText: "رقم المحرك",
               readOnly: false,
             ),
+            CustomTextFormField(
+              controller: unitController,
+              hintText: "رقم الوحدة",
+              readOnly: false,
+            ),
             const Gap(10),
             MyDropDownState(controller: stateController),
             const Gap(100),
@@ -46,8 +51,8 @@ class EngineModalShape extends StatelessWidget {
                           builder: (context) {
                             return MyAlertDialog(
                               title: "تمت الإضافة بنجاح",
-                              content: "يرجي الرجوع للصفحة الرئيسية ",
-                              btnName: "الرجوع للصفحة الرئيسية",
+                              content: "انا بفضل الله ضيفتلك محرك جديد",
+                              btnName: "خلصانه ",
                               onPressed: () {
                                 // Navigator.pushNamedAndRemoveUntil(
                                 //     context, MainView.id, (route) => false);

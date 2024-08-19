@@ -7,6 +7,7 @@ class EngineModelAdapter extends TypeAdapter<EngineModel> {
     return EngineModel(
       id: reader.readInt(),
       state: reader.readString(),
+      unit: reader.readString(),
       logDate: reader.readString(),
       logOutDate: reader.readString(),
       washDate: reader.readString(),
@@ -31,6 +32,7 @@ class EngineModelAdapter extends TypeAdapter<EngineModel> {
   void write(BinaryWriter writer, EngineModel obj) {
     writer.writeInt(obj.id);
     writer.writeString(obj.state);
+    writer.writeString(obj.unit);
     writer.writeString(obj.logDate);
     writer.writeString(obj.logOutDate);
     writer.writeString(obj.washDate);

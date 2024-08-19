@@ -10,6 +10,8 @@ const String all = "all";
 const String refurbished = "ref";
 const String nonRefurbished = "non_ref";
 const String department = "depart";
+const String std = "standard";
+const String mog = "mogarad";
 const String engineID = "engineID";
 const String logDate = "logDate";
 const String logOutDate = "logOutDate";
@@ -19,6 +21,7 @@ const String collectStage = "collectStage";
 const String cylinderStage = "cylinderStage";
 const String sprayStage = "sprayStage";
 const String testStage = "testStage";
+const String unit = "unit";
 
 const String state = "state";
 
@@ -29,6 +32,8 @@ const Map<String, List<String>> langDef = {
   refurbished: ["refurbished", "ص.أ"],
   nonRefurbished: ["non Refurbished", "ص.ع"],
   engineID: ["Engine id", "رقم المحرك"],
+  state: ["State", "الحالة"],
+  unit: ["Unit", "الوحدة"],
   logDate: ["Login Date", "تاريخ الدخول"],
   logOutDate: ["Logout Date", "تاريخ الخروج"],
   washStage: ["Wash Date", "فك وغسيل"],
@@ -37,13 +42,12 @@ const Map<String, List<String>> langDef = {
   cylinderStage: ["", "وش سلندر"],
   sprayStage: ["", "رشاشات"],
   testStage: ["", "اختبار"],
-  state: ["State", "الحالة"],
+  std :["Standard" , "قياسي"],
+  mog : ["mogarad" , "مجرد"],
 };
-
 
 //* مستخدمين في صفحة
 //* engine_detail
-
 
 final List<String> operationsName = [
   langDef[washStage]![lang],
@@ -53,7 +57,6 @@ final List<String> operationsName = [
   langDef[sprayStage]![lang],
   langDef[testStage]![lang],
 ];
-
 
 //* fieldsName , editController , infoEditingState  used in my_data_row_in_modify_engine
 final List<String> fieldsName = [
@@ -67,6 +70,7 @@ final List<String> fieldsName = [
   langDef[cylinderStage]![lang],
   langDef[sprayStage]![lang],
   langDef[testStage]![lang],
+  langDef[unit]![lang],
 ];
 final List<TextEditingController> editControllers = [
   idEditController,
@@ -78,7 +82,8 @@ final List<TextEditingController> editControllers = [
   collectEditController,
   cylinderEditController,
   sprayEditController,
-  testEditController
+  testEditController,
+  unitEditController,
 ];
 
 List infoEditingState = [
@@ -92,6 +97,7 @@ List infoEditingState = [
   false, //* cylinder
   false, //* spray
   false, //* test
+  false,
 ];
 
 class MyAlertDialogText {

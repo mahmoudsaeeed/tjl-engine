@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class MainViewContainerCustom extends StatelessWidget {
@@ -9,8 +10,8 @@ class MainViewContainerCustom extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(40),
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height - 60,
-      color: const Color.fromARGB(255, 71, 39, 37),
+      height: MediaQuery.of(context).size.height,
+      color: Theme.of(context).primaryColor,
       child: child,
     );
   }

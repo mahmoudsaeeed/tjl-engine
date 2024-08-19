@@ -18,14 +18,20 @@ class MyDataRow extends StatelessWidget {
         children: [
           Container(
               margin: const EdgeInsets.symmetric(vertical: 10),
-              width: 100,
+              width: 90,
               // color: Colors.amber,
-              child: Text(fieldText)),
+              child: Text(
+                fieldText,
+                style: Theme.of(context).textTheme.titleMedium,
+              )),
           const Gap(10),
           Container(
               margin: const EdgeInsets.symmetric(vertical: 10),
               // color: Colors.amber,
-              child: Text(value)),
+              child: Text(
+                value,
+                style: Theme.of(context).textTheme.displayMedium,
+              )),
           // CustomTextFormField(
           //   controller: txtFieldController,
           //   readOnly: true,

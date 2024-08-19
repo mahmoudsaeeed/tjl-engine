@@ -1,3 +1,4 @@
+import 'package:bloc_learn/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class MyDropDownState extends StatefulWidget {
@@ -28,14 +29,23 @@ class _MyDropDownStateState extends State<MyDropDownState> {
 List<DropdownMenuEntry<int>> items = const [
   DropdownMenuEntry(
     value: 0,
-    label: "ref",
+    label: refurbished,
+
   ),
   DropdownMenuEntry(
     value: 1,
-    label: "non_ref",
+    label: nonRefurbished,
   ),
   DropdownMenuEntry(
     value: 2,
-    label: "depart",
+    label: department,
+  ),
+  DropdownMenuEntry(
+    value: 3,
+    label: mog,
+  ),
+  DropdownMenuEntry(
+    value: 4,
+    label: std,
   ),
 ];

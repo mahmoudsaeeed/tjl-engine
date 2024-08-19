@@ -18,6 +18,7 @@ class ChangeOperationCubit extends Cubit<ChangeOperationState> {
           newEngine = EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: !engine.washStage ? myDateTime : "",
@@ -35,7 +36,8 @@ class ChangeOperationCubit extends Cubit<ChangeOperationState> {
           );
 
           box.putAt(indexCurrEngineInBox, newEngine!);
-                    debugPrint("wash stage : ${newEngine!.washStage}  on Date ${newEngine!.washDate}");
+          debugPrint(
+              "wash stage : ${newEngine!.washStage}  on Date ${newEngine!.washDate}");
 
           emit(ChangeOperationSuccess());
         }
@@ -45,6 +47,7 @@ class ChangeOperationCubit extends Cubit<ChangeOperationState> {
           newEngine = EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
@@ -62,7 +65,8 @@ class ChangeOperationCubit extends Cubit<ChangeOperationState> {
           );
 
           box.putAt(indexCurrEngineInBox, newEngine!);
-          debugPrint("crank stage : ${newEngine!.crankStage}  on Date ${newEngine!.crankDate}");
+          debugPrint(
+              "crank stage : ${newEngine!.crankStage}  on Date ${newEngine!.crankDate}");
           emit(ChangeOperationSuccess());
         }
       //* collect
@@ -71,6 +75,7 @@ class ChangeOperationCubit extends Cubit<ChangeOperationState> {
           newEngine = EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
@@ -88,7 +93,8 @@ class ChangeOperationCubit extends Cubit<ChangeOperationState> {
           );
 
           box.putAt(indexCurrEngineInBox, newEngine!);
-          debugPrint("collect stage : ${newEngine!.collectStage}  on Date ${newEngine!.collectDate}");
+          debugPrint(
+              "collect stage : ${newEngine!.collectStage}  on Date ${newEngine!.collectDate}");
           emit(ChangeOperationSuccess());
         }
       //* cylinder
@@ -97,6 +103,7 @@ class ChangeOperationCubit extends Cubit<ChangeOperationState> {
           newEngine = EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
@@ -114,7 +121,8 @@ class ChangeOperationCubit extends Cubit<ChangeOperationState> {
           );
 
           box.putAt(indexCurrEngineInBox, newEngine!);
-                    debugPrint("cylinder stage : ${newEngine!.cylinderStage}  on Date ${newEngine!.cylinderDate}");
+          debugPrint(
+              "cylinder stage : ${newEngine!.cylinderStage}  on Date ${newEngine!.cylinderDate}");
 
           emit(ChangeOperationSuccess());
         }
@@ -124,6 +132,7 @@ class ChangeOperationCubit extends Cubit<ChangeOperationState> {
           newEngine = EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
@@ -140,7 +149,8 @@ class ChangeOperationCubit extends Cubit<ChangeOperationState> {
             testStage: engine.testStage,
           );
           box.putAt(indexCurrEngineInBox, newEngine!);
-                    debugPrint("spray stage : ${newEngine!.sprayStage}  on Date ${newEngine!.sprayDate}");
+          debugPrint(
+              "spray stage : ${newEngine!.sprayStage}  on Date ${newEngine!.sprayDate}");
 
           emit(ChangeOperationSuccess());
         }
@@ -150,6 +160,7 @@ class ChangeOperationCubit extends Cubit<ChangeOperationState> {
           newEngine = EngineModel(
             id: engine.id,
             state: engine.state,
+            unit: engine.unit,
             logDate: engine.logDate,
             logOutDate: engine.logOutDate,
             washDate: engine.washDate,
@@ -167,7 +178,8 @@ class ChangeOperationCubit extends Cubit<ChangeOperationState> {
           );
 
           box.putAt(indexCurrEngineInBox, newEngine!);
-                    debugPrint("test stage : ${newEngine!.testStage}  on Date ${newEngine!.testDate}");
+          debugPrint(
+              "test stage : ${newEngine!.testStage}  on Date ${newEngine!.testDate}");
 
           emit(ChangeOperationSuccess());
         }

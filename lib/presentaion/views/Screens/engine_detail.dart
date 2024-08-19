@@ -10,7 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class EngineDetail extends StatelessWidget {
-  const EngineDetail({super.key, required this.currEngine, required this.currPage});
+  const EngineDetail(
+      {super.key, required this.currEngine, required this.currPage});
   static const String id = "engine_detail";
 
   final EngineModel currEngine;
@@ -40,24 +41,28 @@ class EngineDetail extends StatelessWidget {
                   fieldText: langDef[state]![lang],
                 ),
 
-                ///TODO هكمل باقي العناصر اللي هتتعرض في صفحة العرض
-                ///TODO وهضيف كمان زر في الاسفل اسمه تعديل يسمحلي اعدل علي اي قيمة في المحرك
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    //* login
-                    MyDataRow(
-                      value: currEngine.logDate,
-                      // txtFieldController: logDateEditController,
-                      fieldText: langDef[logDate]![lang],
-                    ),
-                    //*log out
-                    MyDataRow(
-                      value: currEngine.logOutDate,
-                      // txtFieldController: logOutDateEditController,
-                      fieldText: langDef[logOutDate]![lang],
-                    ),
-                  ],
+                //* unit
+                MyDataRow(
+                  value: currEngine.unit,
+                  // txtFieldController: stateEditController,
+                  fieldText: langDef[unit]![lang],
+                ),
+
+                MyDataRow(
+                  value: currEngine.logDate,
+                  // txtFieldController: logDateEditController,
+                  fieldText: langDef[logDate]![lang],
+                ),
+
+                MyDataRow(
+                  value: currEngine.logOutDate,
+                  // txtFieldController: logOutDateEditController,
+                  fieldText: langDef[logOutDate]![lang],
+                ),
+                Divider(
+                  indent: 50,
+                  endIndent: 50,
+                  thickness: 2,
                 ),
                 OperationStages(
                   currEngine: currEngine,
@@ -66,20 +71,26 @@ class EngineDetail extends StatelessWidget {
                 const Gap(50),
 
                 ElevatedButton(
-                    onPressed: () {
-                      setInitialData(currEngine);
+                  style: ButtonStyle(
+                      backgroundColor: WidgetStatePropertyAll(Colors.green)),
+                  onPressed: () {
+                    setInitialData(currEngine);
 
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ModifyEngine(
-                            currEngine: currEngine,
-                            currPage: currPage,
-                          ),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ModifyEngine(
+                          currEngine: currEngine,
+                          currPage: currPage,
                         ),
-                      );
-                    },
-                    child: Text("تعديل المحرك"))
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "تعديل المحرك",
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                )
               ],
             ),
           ),
@@ -88,6 +99,3 @@ class EngineDetail extends StatelessWidget {
     );
   }
 }
-
-
-

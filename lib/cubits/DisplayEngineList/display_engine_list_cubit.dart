@@ -20,7 +20,7 @@ class DisplayEngineListCubit extends Cubit<List<EngineModel>> {
       case 1:
         {
           currList =
-              box.values.where((engine) => engine.state == nonRefurbished).toList();
+              box.values.where((engine) => engine.state == nonRefurbished || engine.state == mog).toList();
           break;
         }
 
@@ -28,7 +28,7 @@ class DisplayEngineListCubit extends Cubit<List<EngineModel>> {
       case 2:
         {
           currList =
-              box.values.where((engine) => engine.state == refurbished).toList();
+              box.values.where((engine) => engine.state == refurbished || engine.state == std).toList();
           break;
         }
 

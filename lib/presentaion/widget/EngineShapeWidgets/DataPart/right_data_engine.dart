@@ -15,8 +15,9 @@ class RightDataEngine extends StatelessWidget {
         const Gap(10),
         MyDataRow(data: "الحالة", value: currEngine.state),
         const Gap(10),
-                MyDataRow(data: "تاريخ الدخول", value: currEngine.logDate),
-
+        MyDataRow(data: "الوحدة", value: currEngine.unit),
+        const Gap(10),
+        MyDataRow(data: "تاريخ الدخول", value: currEngine.logDate),
       ],
     );
   }

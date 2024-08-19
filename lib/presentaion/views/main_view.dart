@@ -11,33 +11,45 @@ class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: SingleChildScrollView(
-        child: MainViewContainerCustom(
-          child: Column(
-            children: [
-              //* الجزء الخاص بالقسم
-              Expanded(
-                child: DepartsInMainView(
-                    title: "داخل القسم",
-                    color: const Color.fromARGB(255, 115, 161, 196),
-                    onTap: () {
-                      Navigator.pushNamed(context, DepartView.id);
-                    }),
+        child: Stack(
+          children: [
+            MainViewContainerCustom(
+              child: Column(
+                children: [
+                  //* الجزء الخاص بالقسم
+                  const Gap(100),
+                  Expanded(
+                    child: DepartsInMainView(
+                        title: "محركات داخل القسم",
+                        onTap: () {
+                          Navigator.pushNamed(context, DepartView.id);
+                        }),
+                  ),
+                  const Gap(60),
+                  //* كل المحركات
+                  Expanded(
+                    child: DepartsInMainView(
+                      title: "كل المحركات",
+                      onTap: () {
+                        Navigator.pushNamed(context, HomeView.id);
+                      },
+                    ),
+                  ),
+                  const Gap(60),
+                ],
               ),
-              const Gap(30),
-              //* كل المحركات
-              Expanded(
-                child: DepartsInMainView(
-                  title: "كل المحركات",
-                  color: Colors.blue,
-                  onTap: () {
-                    Navigator.pushNamed(context, HomeView.id);
-                  },
-                ),
-              ),
-            ],
-          ),
+            ),
+            Container(
+              height: 90,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  color: Theme.of(context).appBarTheme.backgroundColor,
+                  borderRadius:
+                      const BorderRadius.vertical(bottom: Radius.circular(30))),
+              
+            ),
+          ],
         ),
       ),
     );

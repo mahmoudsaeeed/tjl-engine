@@ -1,4 +1,5 @@
 import 'package:bloc_learn/cubits/AddEngine/add_engine_cubit.dart';
+import 'package:bloc_learn/presentaion/views/main_view.dart';
 import 'package:bloc_learn/presentaion/widget/modal_sheet/add_engine_modal_shape.dart';
 import 'package:bloc_learn/utils/constants.dart';
 import 'package:bloc_learn/utils/def.dart';
@@ -12,7 +13,15 @@ class FloatingActionBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
-      icon: const Icon(Icons.add),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(20),
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+        ),
+      ),
+      offset: const Offset(30, 15),
+      icon: const Icon(Icons.menu),
       onSelected: (int value) {
         onSelected(value, context, indexPage);
       },
@@ -88,7 +97,23 @@ onSelected(int value, BuildContext context, int indexPage) {
                   title: "تأكيد حذف المحركات",
                   content: "هل تريد حذف كل المحركات من وحدةالتخزين ؟",
                   onPressed: () {
-                    box.clear();
+                    Navigator.pop(context);
+                    showDialog(
+                      context: context,
+                      builder: (context) => MyAlertDialog(
+                        title: "تمت العملية",
+                        content: "مسحت كل المحركات؟؟؟؟ احسن😁",
+                        btnName: "خلصانه",
+                        onPressed: () {
+                          box.clear();
+                          // BlocProvider.of<DisplayEngineListCubit>(context)
+                          //     .fetchAllData(indexPage);
+                          Navigator.pushReplacementNamed(context, MainView.id);
+                        },
+                        onPressed2: () {},
+                        showbtn2: false,
+                      ),
+                    );
                   },
                   onPressed2: () {
                     Navigator.pop(context);

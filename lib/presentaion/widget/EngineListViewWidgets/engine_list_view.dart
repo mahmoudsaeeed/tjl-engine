@@ -10,7 +10,8 @@ class EngineListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     debugPrint("${currList.length}");
-    return Padding(
+    return Container(
+      color: Theme.of(context).primaryColor,
       padding: const EdgeInsets.all(10.0),
       child: ListView.builder(
         itemCount: currList.length,

@@ -17,9 +17,37 @@ class MyAlertDialog extends StatelessWidget {
   final bool showbtn2;
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(title: Text(title), content: Text(content), actions: [
-      ElevatedButton(onPressed: onPressed, child: Text(btnName)),
-      if (showbtn2) ElevatedButton(onPressed: onPressed2, child: Text(btnName2))
-    ]);
+    return Directionality(
+      child: AlertDialog(
+        backgroundColor: Theme.of(context).primaryColorDark,
+        title: Text(
+          title,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        content: Text(
+          content,
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
+        actions: [
+          if (showbtn2)
+            ElevatedButton(
+                onPressed: onPressed2,
+                style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(Colors.red)),
+                child: Text(
+                  btnName2,
+                  style: TextStyle(color: Colors.white),
+                )),
+          ElevatedButton(
+              style: const ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll(Colors.green)),
+              onPressed: onPressed,
+              child: Text(
+                btnName,
+                style: const TextStyle(color: Colors.white),
+              )),
+        ],
+      ),
+    );
   }
 }

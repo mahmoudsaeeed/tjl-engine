@@ -35,7 +35,7 @@ class MyTimeLineTile extends StatelessWidget {
         drawGap: true,
         width: 50,
 
-        color: isFinished ? Colors.blue : Colors.grey,
+        color: isFinished ? Theme.of(context).appBarTheme.backgroundColor! : Colors.grey,
         iconStyle: isFinished
             ? IconStyle(
                 iconData: Icons.check,
@@ -45,10 +45,10 @@ class MyTimeLineTile extends StatelessWidget {
         height: 20,
       ),
       beforeLineStyle: LineStyle(
-        color: isFinished ? Colors.blue : Colors.grey,
+        color: isFinished ? Theme.of(context).appBarTheme.backgroundColor! : Colors.grey,
       ),
       afterLineStyle: LineStyle(
-        color: isFinished ? Colors.blue : Colors.grey,
+        color: isFinished ? Theme.of(context).appBarTheme.backgroundColor! : Colors.grey,
       ),
       endChild: GestureDetector(
         onTap: () {
@@ -74,19 +74,17 @@ class MyTimeLineTile extends StatelessWidget {
         },
         child: Container(
           // padding: EdgeInsets.all(10),
-          margin: const EdgeInsets.symmetric(horizontal: 10),
+          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+          padding: const EdgeInsets.all(5),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: isFinished ? Colors.blue : Colors.grey,
-              boxShadow: [
-                // BoxShadow(color: Colors.)
-              ]),
+              color: isFinished ? Theme.of(context).appBarTheme.backgroundColor : Colors.grey,
+            
+              ),
           alignment: Alignment.center,
           child: Text(
             content,
-            style: const TextStyle(
-              fontSize: 12,
-            ),
+            style: Theme.of(context).textTheme.titleSmall
           ),
         ),
       ),

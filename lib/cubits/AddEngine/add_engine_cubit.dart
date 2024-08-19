@@ -11,6 +11,7 @@ class AddEngineCubit extends Cubit<AddEngineState> {
   addEngine() {
     EngineModel engine = EngineModel(
       id : int.parse(idController.value.text),
+      unit : unitController.value.text,
       state : stateController.value.text,
       logDate :myDateTime,
     );
