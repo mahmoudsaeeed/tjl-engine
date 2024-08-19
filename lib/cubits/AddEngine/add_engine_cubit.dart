@@ -14,6 +14,7 @@ class AddEngineCubit extends Cubit<AddEngineState> {
       unit : unitController.value.text,
       state : stateController.value.text,
       logDate :myDateTime,
+      
     );
 
     box.add(engine);

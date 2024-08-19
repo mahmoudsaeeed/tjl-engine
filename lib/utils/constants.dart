@@ -1,7 +1,7 @@
 import 'package:bloc_learn/utils/controllers.dart';
 import 'package:flutter/material.dart';
 
-const knameBox = "engines";
+const knameBox = "engine";
 
 const String addOperation = "Add Engine";
 const String editOperation = "Edit Engine";

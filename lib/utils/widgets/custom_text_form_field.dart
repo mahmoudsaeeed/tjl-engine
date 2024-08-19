@@ -7,7 +7,6 @@ class CustomTextFormField extends StatelessWidget {
     required this.controller,
     this.hintText = "",
     required this.readOnly,
-    
   });
   final TextEditingController controller;
   final String hintText;
@@ -19,7 +18,8 @@ class CustomTextFormField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         readOnly: readOnly,
-        decoration: textFormFieldStyle(hintText , readOnly),      ),
+        decoration: textFormFieldStyle(hintText, readOnly),
+      ),
     );
   }
 }

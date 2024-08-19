@@ -62,9 +62,10 @@ ThemeData lightTheme = ThemeData(
   ///! Colors
   scaffoldBackgroundColor: const Color(0xff222831),
 
-  appBarTheme: const AppBarTheme(color: Color(0xff00ADB5)),
+  // appBarTheme: const AppBarTheme(color: Color(0xff00ADB5)),
+  appBarTheme: AppBarTheme(color: Colors.orange[900]),
   //* background of background
-  primaryColor: const  Color(0xff393E46),
+  primaryColor: const Color(0xff393E46),
 
 //*  background of containers
   primaryColorDark: const Color(0xff222831),
@@ -78,10 +79,16 @@ ThemeData lightTheme = ThemeData(
   // ) ,
 
 /////////////////////////////////////////////////
+  fontFamily: "Cairo",
+
   ///! Fonts
   textTheme: const TextTheme(
     //* texts within MainView Page
-    headlineLarge: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+    headlineLarge: TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+      fontFamily: "Cairo",
+    ),
 
     //* Titles of AlertDialog
     titleLarge: TextStyle(

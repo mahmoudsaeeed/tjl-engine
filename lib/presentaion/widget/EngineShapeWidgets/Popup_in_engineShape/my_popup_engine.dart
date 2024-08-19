@@ -31,8 +31,6 @@ class MyPopupEngine extends StatelessWidget {
           bottomRight: Radius.circular(20),
           bottomLeft: Radius.circular(20),
         )),
-
-        
         onSelected: (value) {
           switch (value) {
             case 0:
@@ -63,7 +61,7 @@ class MyPopupEngine extends StatelessWidget {
                       content: myText.operationConfirmContent(),
                       onPressed: () {
                         BlocProvider.of<EditEngineCubit>(context)
-                            .moveTo(currEngine, department);
+                            .moveToDepart(currEngine, true);   //* هنا اديتله الاوك انه يتنقل للقسم
                         //* move to part
 
                         BlocProvider.of<DisplayEngineListCubit>(context)

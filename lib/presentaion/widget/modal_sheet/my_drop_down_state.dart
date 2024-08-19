@@ -13,6 +13,7 @@ class _MyDropDownStateState extends State<MyDropDownState> {
   @override
   Widget build(BuildContext context) {
     return DropdownMenu(
+      textStyle: Theme.of(context).textTheme.titleMedium,
       controller: widget.controller,
       dropdownMenuEntries: items,
       onSelected: (newValue) {
@@ -30,7 +31,6 @@ List<DropdownMenuEntry<int>> items = const [
   DropdownMenuEntry(
     value: 0,
     label: refurbished,
-
   ),
   DropdownMenuEntry(
     value: 1,
@@ -38,14 +38,10 @@ List<DropdownMenuEntry<int>> items = const [
   ),
   DropdownMenuEntry(
     value: 2,
-    label: department,
-  ),
-  DropdownMenuEntry(
-    value: 3,
     label: mog,
   ),
   DropdownMenuEntry(
-    value: 4,
+    value: 3,
     label: std,
   ),
 ];

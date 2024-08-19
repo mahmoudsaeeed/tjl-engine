@@ -116,8 +116,12 @@ class EngineShape extends StatelessWidget {
                                 EngineModel engine = EngineModel.addLogOutDate(
                                     box.getAt(indexBox)!);
                                 box.putAt(indexBox, engine);
-                                BlocProvider.of<EditEngineCubit>(context)
-                                    .moveTo(box.getAt(indexBox)!, refurbished);
+
+                                final x =
+                                    BlocProvider.of<EditEngineCubit>(context);
+
+                                x.moveTo(box.getAt(indexBox)!, refurbished);
+                                x.moveToDepart(box.getAt(indexBox)!, false);
 
                                 showDialog(
                                     context: context,

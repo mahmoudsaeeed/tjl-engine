@@ -23,59 +23,66 @@ class EngineModalShape extends StatelessWidget {
           left: 20,
           right: 20),
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const Gap(20),
-            CustomTextFormField(
-              controller: idController,
-              hintText: "رقم المحرك",
-              readOnly: false,
-            ),
-            CustomTextFormField(
-              controller: unitController,
-              hintText: "رقم الوحدة",
-              readOnly: false,
-            ),
-            const Gap(10),
-            MyDropDownState(controller: stateController),
-            const Gap(100),
-            ElevatedButton(
-              onPressed: () {
-                switch (operate) {
-                  case addOperation:
-                    {
-                      BlocProvider.of<AddEngineCubit>(context).addEngine();
-                      // BlocProvider.of<DisplayEngineListCubit>(context).fetchAllData(0);
-                      showDialog(
-                          context: context,
-                          builder: (context) {
-                            return MyAlertDialog(
-                              title: "تمت الإضافة بنجاح",
-                              content: "انا بفضل الله ضيفتلك محرك جديد",
-                              btnName: "خلصانه ",
-                              onPressed: () {
-                                // Navigator.pushNamedAndRemoveUntil(
-                                //     context, MainView.id, (route) => false);
-                                BlocProvider.of<DisplayEngineListCubit>(context)
-                                    .fetchAllData(0); //TODO
-                                //TODO fetchAllDate is referch current page but i don't have currPagèe index
-                                Navigator.pop(context);
-                              },
-                              onPressed2: () {},
-                              showbtn2: false,
-                            );
-                          });
-                      break;
-                    }
-                  case editOperation:
-                    {
-                      //TODO here codes of editing modal
-                    }
-                }
-              },
-              child: Text(operate!),
-            ),
-          ],
+        child: GestureDetector(
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusScope.of(context).nextFocus();
+          },
+          child: Column(
+            children: [
+              const Gap(20),
+              CustomTextFormField(
+                controller: idController,
+                hintText: "رقم المحرك",
+                readOnly: false,
+              ),
+              CustomTextFormField(
+                controller: unitController,
+                hintText: "رقم الوحدة",
+                readOnly: false,
+              ),
+              const Gap(10),
+              MyDropDownState(controller: stateController),
+              const Gap(100),
+              ElevatedButton(
+                onPressed: () {
+                  switch (operate) {
+                    case addOperation:
+                      {
+                        BlocProvider.of<AddEngineCubit>(context).addEngine();
+                        // BlocProvider.of<DisplayEngineListCubit>(context).fetchAllData(0);
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return MyAlertDialog(
+                                title: "تمت الإضافة بنجاح",
+                                content: "انا بفضل الله ضيفتلك محرك جديد",
+                                btnName: "خلصانه ",
+                                onPressed: () {
+                                  // Navigator.pushNamedAndRemoveUntil(
+                                  //     context, MainView.id, (route) => false);
+                                  BlocProvider.of<DisplayEngineListCubit>(
+                                          context)
+                                      .fetchAllData(0); //TODO
+                                  //TODO fetchAllDate is referch current page but i don't have currPagèe index
+                                  Navigator.pop(context);
+                                },
+                                onPressed2: () {},
+                                showbtn2: false,
+                              );
+                            });
+                        break;
+                      }
+                    case editOperation:
+                      {
+                        //TODO here codes of editing modal
+                      }
+                  }
+                },
+                child: Text(operate!),
+              ),
+            ],
+          ),
         ),
       ),
     );

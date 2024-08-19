@@ -16,6 +16,7 @@ class EngineModelAdapter extends TypeAdapter<EngineModel> {
       cylinderDate: reader.readString(),
       sprayDate: reader.readString(),
       testDate: reader.readString(),
+      isDeparted: reader.readBool(),
       washStage: reader.readBool(),
       crankStage: reader.readBool(),
       collectStage: reader.readBool(),
@@ -42,6 +43,7 @@ class EngineModelAdapter extends TypeAdapter<EngineModel> {
     writer.writeString(obj.sprayDate);
     writer.writeString(obj.testDate);
 
+    writer.writeBool(obj.isDeparted);
     writer.writeBool(obj.washStage);
     writer.writeBool(obj.crankStage);
     writer.writeBool(obj.collectStage);

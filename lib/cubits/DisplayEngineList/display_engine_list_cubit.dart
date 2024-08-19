@@ -36,7 +36,7 @@ class DisplayEngineListCubit extends Cubit<List<EngineModel>> {
       case 3:
         {
           currList =
-              box.values.where((engine) => engine.state == department).toList();
+              box.values.where((engine) => engine.isDeparted == true).toList();
         }
     }
     emit(currList!);
