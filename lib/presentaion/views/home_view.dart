@@ -7,14 +7,14 @@ class HomeView extends StatelessWidget {
   static const String id = "home_view";
   @override
   Widget build(BuildContext context) {
-    return Directionality(
+    return const Directionality(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        floatingActionButton: const FloatingActionBtn(
+        floatingActionButton: FloatingActionBtn(
           indexPage: 0,
         ), //TODO  we want to provide currPage provider
         floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-        body: const TriggerScreensView(),
+        body: TriggerScreensView(),
       ),
     );
   }

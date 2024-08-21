@@ -16,23 +16,27 @@ class DisplayEngineListCubit extends Cubit<List<EngineModel>> {
           currList = box.values.toList();
           break;
         }
-        //*  nonRef
+      //*  nonRef
       case 1:
         {
-          currList =
-              box.values.where((engine) => engine.state == nonRefurbished || engine.state == mog).toList();
+          currList = box.values
+              .where((engine) =>
+                  engine.state == nonRefurbished || engine.state == mog)
+              .toList();
           break;
         }
 
-        //* ref
+      //* ref
       case 2:
         {
-          currList =
-              box.values.where((engine) => engine.state == refurbished || engine.state == std).toList();
+          currList = box.values
+              .where((engine) =>
+                  engine.state == refurbished || engine.state == std)
+              .toList();
           break;
         }
 
-        //* depart
+      //* depart
       case 3:
         {
           currList =

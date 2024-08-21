@@ -1,33 +1,58 @@
 import 'package:bloc_learn/cubits/AddEngine/add_engine_cubit.dart';
+import 'package:bloc_learn/cubits/DisplayEngineList/display_engine_list_cubit.dart';
 import 'package:bloc_learn/presentaion/views/main_view.dart';
 import 'package:bloc_learn/presentaion/widget/modal_sheet/add_engine_modal_shape.dart';
 import 'package:bloc_learn/utils/constants.dart';
 import 'package:bloc_learn/utils/def.dart';
 import 'package:bloc_learn/utils/widgets/AlertDialog/my_alert_dialog.dart';
+import 'package:bloc_learn/utils/widgets/custom_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
 
 class FloatingActionBtn extends StatelessWidget {
   const FloatingActionBtn({super.key, required this.indexPage});
   final int indexPage;
   @override
   Widget build(BuildContext context) {
-    return PopupMenuButton(
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          topRight: Radius.circular(20),
-          bottomLeft: Radius.circular(20),
-          bottomRight: Radius.circular(20),
+    // final curr = BlocProvider.of<DisplayEngineListCubit>(context);
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        IconButton(
+          onPressed: () {
+            showSearch(
+              context: context,
+              delegate: CustomSearch(
+                // currList: box.values.toList(),
+                currList:BlocProvider.of<DisplayEngineListCubit>(context).currList!,
+                pageNumber: 0,
+                
+              ),
+              
+            );
+          },
+          icon: const Icon(Icons.search),
         ),
-      ),
-      offset: const Offset(30, 15),
-      icon: const Icon(Icons.menu),
-      onSelected: (int value) {
-        onSelected(value, context, indexPage);
-      },
-      itemBuilder: (context) {
-        return list;
-      },
+        const Gap(40),
+        PopupMenuButton(
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(20),
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20),
+            ),
+          ),
+          offset: const Offset(30, 15),
+          icon: const Icon(Icons.menu),
+          onSelected: (int value) {
+            onSelected(value, context, indexPage);
+          },
+          itemBuilder: (context) {
+            return list;
+          },
+        ),
+      ],
     );
   }
 }

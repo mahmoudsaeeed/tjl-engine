@@ -60,7 +60,7 @@ ThemeData lightTheme = ThemeData(
 
 ////////////////////////////////////////////////////////
   ///! Colors
-  scaffoldBackgroundColor: const Color(0xff222831),
+  scaffoldBackgroundColor: const Color(0xff393E46),
 
   // appBarTheme: const AppBarTheme(color: Color(0xff00ADB5)),
   appBarTheme: AppBarTheme(color: Colors.orange[900]),
@@ -69,6 +69,10 @@ ThemeData lightTheme = ThemeData(
 
 //*  background of containers
   primaryColorDark: const Color(0xff222831),
+
+
+
+  searchViewTheme: const SearchViewThemeData(backgroundColor: Colors.orange),
 
   // dialogTheme: ,
   // dialogBackgroundColor: ,
@@ -91,10 +95,11 @@ ThemeData lightTheme = ThemeData(
       fontFamily: "Cairo",
     ),
 
-    //* Titles of AlertDialog
+    //* Titles of AlertDialog   and search
     titleLarge: TextStyle(
       fontSize: 20,
-      color: Colors.white,
+      color: Colors.black,
+      // color: Colors.white,
       fontWeight: FontWeight.bold,
     ),
 
