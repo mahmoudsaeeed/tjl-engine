@@ -32,7 +32,7 @@ class EngineListView extends StatelessWidget {
         ),
         Container(
           height: 60,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.white70,
             // borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
           ),
@@ -78,7 +78,7 @@ class MyNumberEngine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColorDark,
         borderRadius: BorderRadius.circular(5),
@@ -88,12 +88,12 @@ class MyNumberEngine extends StatelessWidget {
         children: [
           Text(
             "$title : ",
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           ), //* عدد المحركات الرئيسي
-          Gap(10),
+          const Gap(10),
           Text(
             "$value",
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           ),
         ],
       ),

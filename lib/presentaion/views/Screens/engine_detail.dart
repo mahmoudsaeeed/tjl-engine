@@ -22,7 +22,7 @@ class EngineDetail extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(),
         body: SingleChildScrollView(
-          child: Container(
+          child: SizedBox(
             // color: Colors.green,
             height: MediaQuery.sizeOf(context).height,
             child: Column(
@@ -59,7 +59,7 @@ class EngineDetail extends StatelessWidget {
                   // txtFieldController: logOutDateEditController,
                   fieldText: langDef[logOutDate]![lang],
                 ),
-                Divider(
+                const Divider(
                   indent: 50,
                   endIndent: 50,
                   thickness: 2,
@@ -71,7 +71,7 @@ class EngineDetail extends StatelessWidget {
                 const Gap(50),
 
                 ElevatedButton(
-                  style: ButtonStyle(
+                  style: const ButtonStyle(
                       backgroundColor: WidgetStatePropertyAll(Colors.green)),
                   onPressed: () {
                     setInitialData(currEngine);

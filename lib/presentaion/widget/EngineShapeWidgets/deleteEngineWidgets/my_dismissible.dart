@@ -23,9 +23,9 @@ class MyDismissible extends StatelessWidget {
         background: Container(
           // height: 90,
           color: Colors.red,
+          alignment: Alignment.centerRight,
           
           child: const Icon(Icons.delete),
-          alignment: Alignment.centerRight,
         ),
         direction: DismissDirection.startToEnd,
 

@@ -32,7 +32,7 @@ class _MyDataRowInModifyEngineState extends State<MyDataRowInModifyEngine> {
         //* title 
         Container(
             // alignment: Alignment.center,
-            padding: EdgeInsets.only(right: 10),
+            padding: const EdgeInsets.only(right: 10),
             width: 100,
             child: Text(
               fieldsName[widget.indexField],

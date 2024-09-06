@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 BoxDecoration engineStyle(context) => BoxDecoration(
-      borderRadius: BorderRadius.horizontal(
+      borderRadius: const BorderRadius.horizontal(
           left: Radius.circular(20), right: Radius.zero),
       color: Theme.of(context).primaryColorDark,
     );
@@ -26,7 +26,7 @@ InputDecoration textFormFieldStyle(label , readOnly) => InputDecoration(
       border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10), gapPadding: 4),
       filled: true,
-      fillColor: readOnly?Color.fromARGB(255, 119, 118, 116) : Colors.white,
+      fillColor: readOnly?const Color.fromARGB(255, 119, 118, 116) : Colors.white,
       contentPadding: const EdgeInsets.all(10),
       isDense: true,
       hintText: label,
@@ -35,7 +35,7 @@ InputDecoration textFormFieldStyle(label , readOnly) => InputDecoration(
 
 RelativeRect rect = RelativeRect.fromSize(recta, Size.infinite);
 
-Rect recta = Rect.fromLTRB(80, 60, 60, 60);
+Rect recta = const Rect.fromLTRB(80, 60, 60, 60);
 
 /////////////////////////////////////////////////////////////////
 

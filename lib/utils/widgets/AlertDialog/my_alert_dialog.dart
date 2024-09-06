@@ -32,11 +32,11 @@ class MyAlertDialog extends StatelessWidget {
           if (showbtn2)
             ElevatedButton(
                 onPressed: onPressed2,
-                style: ButtonStyle(
+                style: const ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(Colors.red)),
                 child: Text(
                   btnName2,
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                 )),
           ElevatedButton(
               style: const ButtonStyle(
