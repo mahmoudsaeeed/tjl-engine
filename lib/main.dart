@@ -1,22 +1,29 @@
 import 'dart:io';
 
-import 'package:bloc_learn/cubits/DisplayEngineDetail/display_engine_detail_cubit.dart';
-import 'package:bloc_learn/cubits/DisplayEngineList/display_engine_list_cubit.dart';
-import 'package:bloc_learn/cubits/EditEngine/edit_engine_cubit.dart';
-import 'package:bloc_learn/cubits/changeOperation/change_operation_cubit.dart';
-import 'package:bloc_learn/cubits/simple_observer.dart';
-import 'package:bloc_learn/models/engine_model.dart';
-import 'package:bloc_learn/models/engine_model_adapter.dart';
-import 'package:bloc_learn/presentaion/views/main_view.dart';
-import 'package:bloc_learn/utils/constants.dart';
-import 'package:bloc_learn/utils/my_routes.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'cubits/DisplayEngineDetail/display_engine_detail_cubit.dart';
+import 'cubits/DisplayEngineList/display_engine_list_cubit.dart';
+import 'cubits/EditEngine/edit_engine_cubit.dart';
+import 'cubits/changeOperation/change_operation_cubit.dart';
+import 'cubits/simple_observer.dart';
+import 'models/engine_model.dart';
+import 'models/engine_model_adapter.dart';
+import 'presentaion/views/main_view.dart';
+import 'utils/constants.dart';
+import 'utils/my_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  Future.delayed(const Duration(seconds: 3)).then(
+    (value) {
+      FlutterNativeSplash.remove();
+    },
+  );
   await Hive.initFlutter();
   Bloc.observer = SimpleObserver();
   Directory dir = await getApplicationDocumentsDirectory();
@@ -69,8 +76,6 @@ ThemeData lightTheme = ThemeData(
 
 //*  background of containers
   primaryColorDark: const Color(0xff222831),
-
-
 
   searchViewTheme: const SearchViewThemeData(backgroundColor: Colors.orange),
 

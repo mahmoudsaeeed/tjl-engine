@@ -1,4 +1,4 @@
-import 'package:bloc_learn/utils/styles.dart';
+import '../styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -7,10 +7,15 @@ class CustomTextFormField extends StatelessWidget {
     required this.controller,
     this.hintText = "",
     required this.readOnly,
+    this.onChanged,
+    this.txtKey, this.validator,
   });
   final TextEditingController controller;
   final String hintText;
   final bool readOnly;
+  final void Function(String)? onChanged;
+  final Key? txtKey;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,6 +24,9 @@ class CustomTextFormField extends StatelessWidget {
         controller: controller,
         readOnly: readOnly,
         decoration: textFormFieldStyle(hintText, readOnly),
+        onChanged: onChanged,
+        validator: validator,
+        key: txtKey,
       ),
     );
   }

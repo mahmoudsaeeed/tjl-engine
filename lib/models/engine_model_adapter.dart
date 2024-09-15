@@ -1,5 +1,6 @@
-import 'package:bloc_learn/models/engine_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
+import 'engine_model.dart';
 
 class EngineModelAdapter extends TypeAdapter<EngineModel> {
   @override

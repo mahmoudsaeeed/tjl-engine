@@ -23,6 +23,7 @@ class MyAlertDialog extends StatelessWidget {
         title: Text(
           title,
           style: Theme.of(context).textTheme.titleLarge,
+          
         ),
         content: Text(
           content,

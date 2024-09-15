@@ -1,5 +1,5 @@
-import 'package:bloc_learn/models/engine_model.dart';
-import 'package:bloc_learn/utils/controllers.dart';
+import '../../models/engine_model.dart';
+import '../controllers.dart';
 
 setInitialData(EngineModel currEngine) {
   idEditController.text = currEngine.id.toString();

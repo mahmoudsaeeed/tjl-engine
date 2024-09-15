@@ -1,4 +1,4 @@
-import 'package:bloc_learn/utils/controllers.dart';
+import 'controllers.dart';
 import 'package:flutter/material.dart';
 
 const knameBox = "engine";
@@ -42,8 +42,8 @@ const Map<String, List<String>> langDef = {
   cylinderStage: ["", "وش سلندر"],
   sprayStage: ["", "رشاشات"],
   testStage: ["", "اختبار"],
-  std :["Standard" , "قياسي"],
-  mog : ["mogarad" , "مجرد"],
+  std: ["Standard", "قياسي"],
+  mog: ["mogarad", "مجرد"],
 };
 
 //* مستخدمين في صفحة

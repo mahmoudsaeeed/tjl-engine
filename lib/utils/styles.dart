@@ -21,16 +21,15 @@ BoxDecoration departments(context) => BoxDecoration(
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-InputDecoration textFormFieldStyle(label , readOnly) => InputDecoration(
-
+InputDecoration textFormFieldStyle(label, readOnly) => InputDecoration(
       border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10), gapPadding: 4),
       filled: true,
-      fillColor: readOnly?const Color.fromARGB(255, 119, 118, 116) : Colors.white,
+      fillColor:
+          readOnly ? const Color.fromARGB(255, 119, 118, 116) : Colors.white,
       contentPadding: const EdgeInsets.all(10),
       isDense: true,
       hintText: label,
-      
     );
 
 RelativeRect rect = RelativeRect.fromSize(recta, Size.infinite);
@@ -42,4 +41,18 @@ Rect recta = const Rect.fromLTRB(80, 60, 60, 60);
 TextStyle namesOfPages(bool isSelected) => TextStyle(
       fontSize: 20,
       color: isSelected ? Colors.white : Colors.white60,
+    );
+
+TextStyle mainTitleApp() => const TextStyle(
+      fontSize: 26,
+      fontWeight: FontWeight.w800,
+      shadows: [
+        Shadow(
+          color: Colors.white,
+          offset: Offset(1, 1),
+        ),
+        Shadow(color: Color.fromARGB(255, 185, 146, 110), offset: Offset(3, 1)),
+        Shadow(
+            color: Color.fromARGB(255, 185, 146, 110), offset: Offset(-3, 1)),
+      ],
     );

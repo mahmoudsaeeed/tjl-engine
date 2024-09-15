@@ -1,10 +1,10 @@
-// import 'package:bloc_learn/cubits/DisplayEngine/display_engine_cubit.dart';
-import 'package:bloc_learn/presentaion/views/Screens/HomeScreen/all_screen.dart';
-import 'package:bloc_learn/presentaion/views/Screens/HomeScreen/non_ref_screen.dart';
-import 'package:bloc_learn/presentaion/views/Screens/HomeScreen/ref_screen.dart';
-import 'package:bloc_learn/utils/constants.dart';
-import 'package:bloc_learn/utils/styles.dart';
+// import 'package:tjl/cubits/DisplayEngine/display_engine_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:tjl/presentaion/views/Screens/HomeScreen/all_screen.dart';
+import 'package:tjl/presentaion/views/Screens/HomeScreen/non_ref_screen.dart';
+import 'package:tjl/presentaion/views/Screens/HomeScreen/ref_screen.dart';
+import 'package:tjl/presentaion/widget/Trigger_Screens_View_Widgets/tabs.dart';
+import 'package:tjl/utils/styles.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TriggerScreensView extends StatefulWidget {
@@ -19,30 +19,7 @@ class _TriggerScreensViewState extends State<TriggerScreensView>
   late TabController _tabController;
   @override
   void initState() {
-    _tabController = TabController(length: _tabs.length, vsync: this);
-
-    //*/* this provider is execute one time when just open the app
-    //*/* it reloads data at first time
-    // BlocProvider.of<DisplayEngineListCubit>(context)
-    //     .fetchAllData(_tabController.index);
-
-    // _tabController.addListener(
-    //   () {
-    //     if (_tabController.indexIsChanging) {
-    //       debugPrint("current index = ${_tabController.index}");
-    //       BlocProvider.of<DisplayEngineListCubit>(context)
-    //           .fetchAllData(_tabController.index);
-    //     }
-    // else {
-    //   debugPrint("current index = ${_tabController.index}");
-    //   debugPrint("current offest = ${_tabController.offset}");
-    //   debugPrint("animation = ${_tabController.animationDuration}");
-    //   debugPrint("${_tabController.indexIsChanging}");
-    // }
-
-    //TODO here we will propaplly use it
-    // },
-    // );
+    _tabController = TabController(length: tabs.length, vsync: this);
     super.initState();
   }
 
@@ -50,12 +27,10 @@ class _TriggerScreensViewState extends State<TriggerScreensView>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
-        // backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         foregroundColor: Colors.white,
         toolbarHeight: 50,
         bottom: TabBar(
-          tabs: _tabs,
+          tabs: tabs,
           controller: _tabController,
           labelStyle: namesOfPages(true),
           unselectedLabelStyle: namesOfPages(false),
@@ -76,14 +51,4 @@ class _TriggerScreensViewState extends State<TriggerScreensView>
   }
 }
 
-List<Widget> _tabs = [
-  Tab(
-    text: langDef[all]![lang],
-  ),
-  Tab(
-    text: langDef[nonRefurbished]![lang],
-  ),
-  Tab(
-    text: langDef[refurbished]![lang],
-  ),
-];
+

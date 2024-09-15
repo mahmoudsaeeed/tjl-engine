@@ -1,5 +1,5 @@
-import 'package:bloc_learn/models/engine_model.dart';
-import 'package:bloc_learn/utils/def.dart';
+import '../../models/engine_model.dart';
+import '../def.dart';
 
 bool showSaveBtn(int indexInBox) {
   EngineModel currEngine = box.getAt(indexInBox)!;

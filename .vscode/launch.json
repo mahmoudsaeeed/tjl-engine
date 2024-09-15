@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "bloc_learn",
+            "name": "tjl",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "bloc_learn (profile mode)",
+            "name": "tjl (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "bloc_learn (release mode)",
+            "name": "tjl (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

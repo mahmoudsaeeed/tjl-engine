@@ -1,4 +1,4 @@
-import 'package:bloc_learn/models/engine_model.dart';
+import '../../models/engine_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'display_engine_detail_state.dart';

@@ -1,5 +1,5 @@
-import 'package:bloc_learn/utils/controllers.dart';
-import 'package:bloc_learn/utils/def.dart';
+import '../utils/controllers.dart';
+import '../utils/def.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class EngineModel extends HiveObject {

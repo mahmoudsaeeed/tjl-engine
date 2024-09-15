@@ -1,13 +1,13 @@
-import 'package:bloc_learn/models/engine_model.dart';
-import 'package:bloc_learn/presentaion/widget/EngineDetailViewWidgets/my_data_row.dart';
-import 'package:bloc_learn/presentaion/widget/EngineDetailViewWidgets/operation_stages.dart';
-import 'package:bloc_learn/presentaion/widget/EngineShapeWidgets/Popup_in_engineShape/ModifyEngine/modify_engine.dart';
-import 'package:bloc_learn/utils/constants.dart';
-import 'package:bloc_learn/utils/methods/initial_data_in_edit_page.dart';
-// import 'package:bloc_learn/utils/controllers.dart';
-// import 'package:bloc_learn/utils/widgets/custom_text_form_field.dart';
+// import 'package:tjl/utils/controllers.dart';
+// import 'package:tjl/utils/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+
+import '../../../models/engine_model.dart';
+import '../../../utils/constants.dart';
+import '../../widget/EngineDetailViewWidgets/edit_engine_btn.dart';
+import '../../widget/EngineDetailViewWidgets/main_engine_detail.dart';
+import '../../widget/EngineDetailViewWidgets/operation_engine_detail.dart';
 
 class EngineDetail extends StatelessWidget {
   const EngineDetail(
@@ -18,6 +18,25 @@ class EngineDetail extends StatelessWidget {
   final int currPage;
   @override
   Widget build(BuildContext context) {
+    List<List<String>> data = [
+      [
+        currEngine.id.toString(),
+        currEngine.state,
+        currEngine.unit,
+        currEngine.logDate,
+        currEngine.logOutDate,
+      ],
+      [
+        langDef[engineID]![lang],
+        langDef[state]![lang],
+        langDef[unit]![lang],
+        langDef[logDate]![lang],
+        langDef[logOutDate]![lang],
+      ]
+    ];
+
+    //* صفحة عرض تفاصيل المحرك
+
     return Directionality(
       child: Scaffold(
         appBar: AppBar(),
@@ -28,69 +47,17 @@ class EngineDetail extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                //* id
-                MyDataRow(
-                  value: currEngine.id.toString(),
-                  // txtFieldController: idEditController,
-                  fieldText: langDef[engineID]![lang],
-                ),
-                //* state
-                MyDataRow(
-                  value: currEngine.state,
-                  // txtFieldController: stateEditController,
-                  fieldText: langDef[state]![lang],
-                ),
-
-                //* unit
-                MyDataRow(
-                  value: currEngine.unit,
-                  // txtFieldController: stateEditController,
-                  fieldText: langDef[unit]![lang],
-                ),
-
-                MyDataRow(
-                  value: currEngine.logDate,
-                  // txtFieldController: logDateEditController,
-                  fieldText: langDef[logDate]![lang],
-                ),
-
-                MyDataRow(
-                  value: currEngine.logOutDate,
-                  // txtFieldController: logOutDateEditController,
-                  fieldText: langDef[logOutDate]![lang],
-                ),
+                MainEngineDetail(data: data),
                 const Divider(
-                  indent: 50,
-                  endIndent: 50,
+                  indent: 100,
+                  endIndent: 80,
                   thickness: 2,
                 ),
-                OperationStages(
+                OperationEngineDetail(
                   currEngine: currEngine,
                 ),
-
                 const Gap(50),
-
-                ElevatedButton(
-                  style: const ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(Colors.green)),
-                  onPressed: () {
-                    setInitialData(currEngine);
-
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ModifyEngine(
-                          currEngine: currEngine,
-                          currPage: currPage,
-                        ),
-                      ),
-                    );
-                  },
-                  child: Text(
-                    "تعديل المحرك",
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                )
+                editEngineBtn(context, currEngine, currPage),
               ],
             ),
           ),
@@ -99,3 +66,4 @@ class EngineDetail extends StatelessWidget {
     );
   }
 }
+
